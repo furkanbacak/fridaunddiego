@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation | Frida & Diego</title>
+    <meta name="description" content="Make a reservation at Frida & Diego - Mexican Restaurant & Cocktail Bar in Berlin Schöneberg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        // EmailJS will be initialized in reservation.js after you add your public key
+        // See README.md for setup instructions
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="frida-diego-logo.png" alt="Frida & Diego" class="nav-logo-img">
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html#about" class="nav-link" data-en="About" data-de="Über uns">About</a></li>
+                <li><a href="menu.html" class="nav-link" data-en="Menu" data-de="Speisekarte">Menu</a></li>
+                <li><a href="index.html#drinks" class="nav-link" data-en="Drinks" data-de="Getränke">Drinks</a></li>
+                <li><a href="index.html#contact" class="nav-link" data-en="Contact" data-de="Kontakt">Contact</a></li>
+                <li><a href="reservation.html" class="nav-link nav-link-active" data-en="Reservation" data-de="Reservierung">Reservation</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="lang-toggle" id="lang-toggle">
+                    <span class="lang-active">EN</span>
+                    <span class="lang-divider">/</span>
+                    <span class="lang-inactive">DE</span>
+                </button>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Reservation Section -->
+    <section class="reservation-section">
+        <div class="reservation-bg"></div>
+        <div class="container">
+            <div class="section-header section-header-light">
+                <span class="section-tag" data-en="Book a Table" data-de="Tisch reservieren">Book a Table</span>
+                <h2 class="section-title" data-en="Make a Reservation" data-de="Reservierung vornehmen">Make a Reservation</h2>
+                <p class="section-desc" data-en="Reserve your table for an unforgettable dining experience" data-de="Reservieren Sie Ihren Tisch für ein unvergessliches kulinarisches Erlebnis">Reserve your table for an unforgettable dining experience</p>
+            </div>
+
+            <div class="reservation-form-wrapper">
+                <form id="reservation-form" class="reservation-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name" data-en="Full Name" data-de="Vollständiger Name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-en="Email Address" data-de="E-Mail-Adresse">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone" data-en="Phone Number" data-de="Telefonnummer">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="guests" data-en="Number of Guests" data-de="Anzahl der Gäste">Number of Guests *</label>
+                            <select id="guests" name="guests" required>
+                                <option value="">--</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9+">9+</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date" data-en="Date" data-de="Datum">Date *</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time" data-en="Time" data-de="Uhrzeit">Time *</label>
+                            <select id="time" name="time" required>
+                                <option value="">--</option>
+                                <option value="17:00">17:00</option>
+                                <option value="17:30">17:30</option>
+                                <option value="18:00">18:00</option>
+                                <option value="18:30">18:30</option>
+                                <option value="19:00">19:00</option>
+                                <option value="19:30">19:30</option>
+                                <option value="20:00">20:00</option>
+                                <option value="20:30">20:30</option>
+                                <option value="21:00">21:00</option>
+                                <option value="21:30">21:30</option>
+                                <option value="22:00">22:00</option>
+                                <option value="22:30">22:30</option>
+                                <option value="23:00">23:00</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="special-requests" data-en="Special Requests or Dietary Requirements" data-de="Besondere Wünsche oder Ernährungsanforderungen">Special Requests or Dietary Requirements</label>
+                        <textarea id="special-requests" name="special-requests" rows="4" placeholder="" data-en-placeholder="Any allergies, dietary restrictions, or special occasions..." data-de-placeholder="Allergien, Ernährungsanforderungen oder besondere Anlässe..."></textarea>
+                    </div>
+
+                    <div class="form-submit-wrapper">
+                        <button type="submit" class="reservation-submit-btn" data-en="Submit Reservation" data-de="Reservierung absenden">
+                            <span data-en="Submit Reservation" data-de="Reservierung absenden">Submit Reservation</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div id="form-message" class="form-message" role="alert" aria-live="polite"></div>
+                </form>
+            </div>
+
+            <div class="reservation-info">
+                <div class="reservation-info-card">
+                    <div class="reservation-info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12,6 12,12 16,14"/>
+                        </svg>
+                    </div>
+                    <h3 data-en="Opening Hours" data-de="Öffnungszeiten">Opening Hours</h3>
+                    <p data-en="Daily: 17:00 – Midnight" data-de="Täglich: 17:00 – Mitternacht">Daily: 17:00 – Midnight</p>
+                </div>
+                <div class="reservation-info-card">
+                    <div class="reservation-info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <h3 data-en="Location" data-de="Standort">Location</h3>
+                    <p>Fuggerstraße 28<br>10777 Berlin<br>Schöneberg</p>
+                </div>
+                <div class="reservation-info-card">
+                    <div class="reservation-info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="6" width="20" height="12" rx="2"/>
+                            <path d="M12 12h.01"/>
+                        </svg>
+                    </div>
+                    <h3 data-en="Contact" data-de="Kontakt">Contact</h3>
+                    <p>fridaunddiego.berlin@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">Frida & Diego</span>
+                    <p data-en="Mexican Restaurant & Cocktail Bar in the heart of Berlin Schöneberg" data-de="Mexikanisches Restaurant & Cocktailbar im Herzen von Berlin Schöneberg">Mexican Restaurant & Cocktail Bar in the heart of Berlin Schöneberg</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html#about" data-en="About" data-de="Über uns">About</a>
+                    <a href="menu.html" data-en="Menu" data-de="Speisekarte">Menu</a>
+                    <a href="index.html#drinks" data-en="Drinks" data-de="Getränke">Drinks</a>
+                    <a href="index.html#contact" data-en="Contact" data-de="Kontakt">Contact</a>
+                    <a href="reservation.html" data-en="Reservation" data-de="Reservierung">Reservation</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://instagram.com/fridaunddiego" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="2" width="20" height="20" rx="5"/>
+                            <circle cx="12" cy="12" r="4"/>
+                            <circle cx="18" cy="6" r="1.5" fill="currentColor" stroke="none"/>
+                        </svg>
+                    </a>
+                    <a href="https://share.google/JZHSs9rwtgosXiVL3" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Google Reviews">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Frida & Diego. <span data-en="All rights reserved." data-de="Alle Rechte vorbehalten.">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="reservation.js"></script>
+</body>
+</html>
