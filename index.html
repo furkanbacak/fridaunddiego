@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frida & Diego | Mexican Restaurant & Cocktail Bar Berlin</title>
+    <meta name="description" content="Authentic Mexican & Tex-Mex cuisine with an extensive cocktail bar in the heart of Berlin Schöneberg. Experience the spirit of Frida Kahlo and Diego Rivera.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-frida">Frida</span>
+                <span class="logo-ampersand">&</span>
+                <span class="logo-diego">Diego</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#about" class="nav-link" data-en="About" data-de="Über uns">About</a></li>
+                <li><a href="#menu" class="nav-link" data-en="Menu" data-de="Speisekarte">Menu</a></li>
+                <li><a href="#drinks" class="nav-link" data-en="Drinks" data-de="Getränke">Drinks</a></li>
+                <li><a href="#contact" class="nav-link" data-en="Contact" data-de="Kontakt">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="lang-toggle" id="lang-toggle">
+                    <span class="lang-active">EN</span>
+                    <span class="lang-divider">/</span>
+                    <span class="lang-inactive">DE</span>
+                </button>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-pattern"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-flowers hero-flowers-left"></div>
+            <div class="hero-flowers hero-flowers-right"></div>
+            <h1 class="hero-title">
+                <span class="title-frida">Frida</span>
+                <span class="title-ampersand">&</span>
+                <span class="title-diego">Diego</span>
+            </h1>
+            <p class="hero-subtitle" data-en="Mexican Restaurant & Cocktail Bar" data-de="Mexikanisches Restaurant & Cocktailbar">Mexican Restaurant & Cocktail Bar</p>
+            <p class="hero-location">
+                <svg class="icon-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                </svg>
+                Berlin Schöneberg
+            </p>
+            <a href="#menu" class="hero-cta" data-en="Explore Menu" data-de="Speisekarte entdecken">Explore Menu</a>
+        </div>
+        <div class="hero-scroll">
+            <span data-en="Scroll" data-de="Scrollen">Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-en="Our Story" data-de="Unsere Geschichte">Our Story</span>
+                <h2 class="section-title" data-en="Where Art Meets Flavor" data-de="Wo Kunst auf Geschmack trifft">Where Art Meets Flavor</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-card about-card-main">
+                    <div class="about-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3 data-en="The Concept" data-de="Das Konzept">The Concept</h3>
+                    <p data-en="Named after the legendary Mexican artistic couple, Frida Kahlo and Diego Rivera, our restaurant captures the passionate, colorful spirit of Mexican culture. Every corner tells a story of art, love, and tradition." data-de="Benannt nach dem legendären mexikanischen Künstlerpaar Frida Kahlo und Diego Rivera, fängt unser Restaurant den leidenschaftlichen, farbenfrohen Geist der mexikanischen Kultur ein. Jede Ecke erzählt eine Geschichte von Kunst, Liebe und Tradition.">Named after the legendary Mexican artistic couple, Frida Kahlo and Diego Rivera, our restaurant captures the passionate, colorful spirit of Mexican culture. Every corner tells a story of art, love, and tradition.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                            <polyline points="9,22 9,12 15,12 15,22"/>
+                        </svg>
+                    </div>
+                    <h3 data-en="The Atmosphere" data-de="Die Atmosphäre">The Atmosphere</h3>
+                    <p data-en="Step into a world of vibrant murals, warm lighting, and the unmistakable Mexican aesthetic. Casual yet charming—perfect for starting your evening in style." data-de="Tauchen Sie ein in eine Welt voller lebendiger Wandmalereien, warmem Licht und unverkennbarer mexikanischer Ästhetik. Lässig und doch charmant—perfekt um Ihren Abend stilvoll zu beginnen.">Step into a world of vibrant murals, warm lighting, and the unmistakable Mexican aesthetic. Casual yet charming—perfect for starting your evening in style.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M17 3a2.85 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
+                        </svg>
+                    </div>
+                    <h3 data-en="Rainbow District" data-de="Regenbogenkiez">Rainbow District</h3>
+                    <p data-en="Located in the heart of Schöneberg's famous Regenbogenkiez, we're surrounded by Berlin's most vibrant nightlife. The perfect spot before exploring the neighborhood." data-de="Im Herzen des berühmten Schöneberger Regenbogenkiezes gelegen, sind wir umgeben vom lebhaftesten Nachtleben Berlins. Der perfekte Ort, bevor Sie die Nachbarschaft erkunden.">Located in the heart of Schöneberg's famous Regenbogenkiez, we're surrounded by Berlin's most vibrant nightlife. The perfect spot before exploring the neighborhood.</p>
+                </div>
+            </div>
+            <div class="about-features">
+                <div class="feature">
+                    <span class="feature-icon">☀️</span>
+                    <span data-en="Summer Terrace" data-de="Sommerterrasse">Summer Terrace</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🎨</span>
+                    <span data-en="Artistic Decor" data-de="Künstlerisches Dekor">Artistic Decor</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🍹</span>
+                    <span data-en="Cocktail Bar" data-de="Cocktailbar">Cocktail Bar</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🌮</span>
+                    <span data-en="Authentic Cuisine" data-de="Authentische Küche">Authentic Cuisine</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="menu-bg"></div>
+        <div class="container">
+            <div class="section-header section-header-light">
+                <span class="section-tag" data-en="Our Kitchen" data-de="Unsere Küche">Our Kitchen</span>
+                <h2 class="section-title" data-en="The Menu" data-de="Die Speisekarte">The Menu</h2>
+                <p class="section-desc" data-en="A celebration of Mexican & Tex-Mex flavors, crafted with passion" data-de="Eine Feier mexikanischer & Tex-Mex Aromen, mit Leidenschaft zubereitet">A celebration of Mexican & Tex-Mex flavors, crafted with passion</p>
+            </div>
+            
+            <div class="menu-categories">
+                <div class="menu-category">
+                    <div class="category-header">
+                        <span class="category-icon">🌮</span>
+                        <h3 data-en="Tacos & Enchiladas" data-de="Tacos & Enchiladas">Tacos & Enchiladas</h3>
+                    </div>
+                    <p class="category-desc" data-en="Classic hand-rolled tortillas filled with your choice of seasoned chicken, slow-cooked beef, or fresh vegetables. Topped with our house-made salsas." data-de="Klassische handgerollte Tortillas gefüllt mit gewürztem Hähnchen, langsam gegartem Rindfleisch oder frischem Gemüse nach Wahl. Mit unseren hausgemachten Salsas.">Classic hand-rolled tortillas filled with your choice of seasoned chicken, slow-cooked beef, or fresh vegetables. Topped with our house-made salsas.</p>
+                </div>
+                
+                <div class="menu-category">
+                    <div class="category-header">
+                        <span class="category-icon">🔥</span>
+                        <h3 data-en="Sizzling Fajitas" data-de="Brutzelnde Fajitas">Sizzling Fajitas</h3>
+                    </div>
+                    <p class="category-desc" data-en="Our signature dish! Served on a hot skillet with peppers, onions, and warm tortillas. A theatrical and delicious experience." data-de="Unser Signature-Gericht! Serviert auf einer heißen Pfanne mit Paprika, Zwiebeln und warmen Tortillas. Ein theatralisches und köstliches Erlebnis.">Our signature dish! Served on a hot skillet with peppers, onions, and warm tortillas. A theatrical and delicious experience.</p>
+                    <span class="menu-badge" data-en="House Favorite" data-de="Hausempfehlung">House Favorite</span>
+                </div>
+                
+                <div class="menu-category">
+                    <div class="category-header">
+                        <span class="category-icon">🥩</span>
+                        <h3 data-en="Argentinian Steaks" data-de="Argentinische Steaks">Argentinian Steaks</h3>
+                    </div>
+                    <p class="category-desc" data-en="Premium cuts including Rump Steak and Entrecôte, grilled to perfection. Served with chimichurri and your choice of sides." data-de="Premium-Cuts einschließlich Rumpsteak und Entrecôte, perfekt gegrillt. Serviert mit Chimichurri und Beilagen nach Wahl.">Premium cuts including Rump Steak and Entrecôte, grilled to perfection. Served with chimichurri and your choice of sides.</p>
+                </div>
+                
+                <div class="menu-category">
+                    <div class="category-header">
+                        <span class="category-icon">✨</span>
+                        <h3 data-en="Specialties" data-de="Spezialitäten">Specialties</h3>
+                    </div>
+                    <p class="category-desc" data-en="Discover our Mole Poblano—tender chicken in a rich chocolate-chili sauce. Or try our crispy Chimichangas, deep-fried to golden perfection." data-de="Entdecken Sie unser Mole Poblano—zartes Hähnchen in einer reichhaltigen Schokoladen-Chili-Sauce. Oder probieren Sie unsere knusprigen Chimichangas, goldbraun frittiert.">Discover our Mole Poblano—tender chicken in a rich chocolate-chili sauce. Or try our crispy Chimichangas, deep-fried to golden perfection.</p>
+                </div>
+            </div>
+            
+            <div class="menu-price-note">
+                <span data-en="Main courses €15–€25" data-de="Hauptgerichte €15–€25">Main courses €15–€25</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Drinks Section -->
+    <section class="drinks" id="drinks">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-en="The Bar" data-de="Die Bar">The Bar</span>
+                <h2 class="section-title" data-en="Cocktails & More" data-de="Cocktails & Mehr">Cocktails & More</h2>
+            </div>
+            
+            <div class="drinks-showcase">
+                <div class="drink-featured">
+                    <div class="drink-visual">
+                        <div class="drink-glow"></div>
+                        <span class="drink-emoji">🍹</span>
+                    </div>
+                    <div class="drink-info">
+                        <span class="drink-badge" data-en="Signature" data-de="Signature">Signature</span>
+                        <h3>Margarita</h3>
+                        <p data-en="Our famous house Margarita—the perfect balance of tequila, lime, and triple sec. Available classic, frozen, or with a spicy kick." data-de="Unsere berühmte Haus-Margarita—die perfekte Balance aus Tequila, Limette und Triple Sec. Erhältlich klassisch, frozen oder mit einem würzigen Kick.">Our famous house Margarita—the perfect balance of tequila, lime, and triple sec. Available classic, frozen, or with a spicy kick.</p>
+                    </div>
+                </div>
+                
+                <div class="drink-featured">
+                    <div class="drink-visual">
+                        <div class="drink-glow drink-glow-alt"></div>
+                        <span class="drink-emoji">🥃</span>
+                    </div>
+                    <div class="drink-info">
+                        <span class="drink-badge" data-en="Popular" data-de="Beliebt">Popular</span>
+                        <h3>Pisco Sour</h3>
+                        <p data-en="A South American classic with Pisco, fresh lime juice, simple syrup, egg white, and a dash of bitters. Smooth and sophisticated." data-de="Ein südamerikanischer Klassiker mit Pisco, frischem Limettensaft, Zuckersirup, Eiweiß und einem Spritzer Bitter. Sanft und raffiniert.">A South American classic with Pisco, fresh lime juice, simple syrup, egg white, and a dash of bitters. Smooth and sophisticated.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="drinks-note">
+                <div class="note-icon">🍸</div>
+                <p data-en="Extensive cocktail menu available. Ask about our Happy Hour specials!" data-de="Umfangreiche Cocktailkarte verfügbar. Fragen Sie nach unseren Happy Hour Angeboten!">Extensive cocktail menu available. Ask about our Happy Hour specials!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-bg"></div>
+        <div class="container">
+            <div class="section-header section-header-light">
+                <span class="section-tag" data-en="Visit Us" data-de="Besuchen Sie uns">Visit Us</span>
+                <h2 class="section-title" data-en="Get in Touch" data-de="Kontakt">Get in Touch</h2>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <h3 data-en="Address" data-de="Adresse">Address</h3>
+                    <p>Fuggerstraße 28<br>10777 Berlin<br>Schöneberg</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12,6 12,12 16,14"/>
+                        </svg>
+                    </div>
+                    <h3 data-en="Opening Hours" data-de="Öffnungszeiten">Opening Hours</h3>
+                    <p data-en="Daily<br>17:00 – Midnight" data-de="Täglich<br>17:00 – Mitternacht">Daily<br>17:00 – Midnight</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="6" width="20" height="12" rx="2"/>
+                            <path d="M12 12h.01"/>
+                            <path d="M17 12h.01"/>
+                            <path d="M7 12h.01"/>
+                        </svg>
+                    </div>
+                    <h3 data-en="Getting Here" data-de="Anfahrt">Getting Here</h3>
+                    <p data-en="U-Bahn: Wittenbergplatz (U1, U2, U3)<br>or Nollendorfplatz" data-de="U-Bahn: Wittenbergplatz (U1, U2, U3)<br>oder Nollendorfplatz">U-Bahn: Wittenbergplatz (U1, U2, U3)<br>or Nollendorfplatz</p>
+                </div>
+            </div>
+            
+            <div class="contact-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.8!2d13.3475!3d52.4975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a850f5a6c3b7e7%3A0x0!2sFuggerstra%C3%9Fe%2028%2C%2010777%20Berlin!5e0!3m2!1sen!2sde!4v1"
+                    width="100%" 
+                    height="300" 
+                    style="border:0; border-radius: 16px;" 
+                    allowfullscreen="" 
+                    loading="lazy"
+                    title="Frida & Diego location map">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">Frida & Diego</span>
+                    <p data-en="Mexican Restaurant & Cocktail Bar in the heart of Berlin Schöneberg" data-de="Mexikanisches Restaurant & Cocktailbar im Herzen von Berlin Schöneberg">Mexican Restaurant & Cocktail Bar in the heart of Berlin Schöneberg</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#about" data-en="About" data-de="Über uns">About</a>
+                    <a href="#menu" data-en="Menu" data-de="Speisekarte">Menu</a>
+                    <a href="#drinks" data-en="Drinks" data-de="Getränke">Drinks</a>
+                    <a href="#contact" data-en="Contact" data-de="Kontakt">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Frida & Diego. <span data-en="All rights reserved." data-de="Alle Rechte vorbehalten.">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
