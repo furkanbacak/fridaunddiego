@@ -223,6 +223,10 @@
 }
 
 .menu-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 0.75rem;
     padding: 0.5rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -232,18 +236,42 @@
 }
 
 .item-name {
-    display: block;
+    flex: 1;
+    min-width: 60%;
     font-weight: 500;
     color: var(--cream);
     font-size: 0.95rem;
-    margin-bottom: 0.25rem;
+}
+
+.item-price {
+    font-weight: 600;
+    color: var(--gold);
+    font-size: 0.9rem;
 }
 
 .item-desc {
-    display: block;
+    flex: 100%;
     font-size: 0.8rem;
     color: rgba(250, 243, 224, 0.6);
     line-height: 1.4;
+}
+
+.category-note {
+    font-size: 0.75rem;
+    color: rgba(250, 243, 224, 0.6);
+    font-style: italic;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    line-height: 1.5;
+}
+
+.drinks-price {
+    display: block;
+    font-weight: 500;
+    color: var(--gold);
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
 }
 
 /* Menu Note */
