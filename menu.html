@@ -788,6 +788,9 @@
 
     <script src="script.js?v=2"></script>
     <script>
+        // Scroll to top on page load
+        window.scrollTo(0, 0);
+        
         // Tab switching
         document.querySelectorAll('.menu-tab').forEach(tab => {
             tab.addEventListener('click', () => {
@@ -800,8 +803,8 @@
                 const sectionId = tab.dataset.tab + '-section';
                 document.getElementById(sectionId).classList.add('active');
                 
-                // Scroll to top of content
-                document.querySelector('.menu-content').scrollTop = 0;
+                // Scroll to top of page smoothly
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
 
