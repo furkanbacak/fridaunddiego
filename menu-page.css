@@ -353,6 +353,21 @@
     text-align: center;
 }
 
+/* Drinks Section Divider */
+.drinks-section-divider {
+    margin: 2rem 0 1rem;
+    padding: 1rem 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.drinks-section-divider h2 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--gold);
+}
+
 /* Drinks Card Styles */
 .drinks-card {
     background: rgba(255, 255, 255, 0.02);

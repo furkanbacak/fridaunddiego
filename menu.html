@@ -32,15 +32,11 @@
     <nav class="menu-tabs">
         <button class="menu-tab active" data-tab="food">
             <span class="tab-icon">🍽️</span>
-            <span class="tab-text" data-en="Food" data-de="Essen">Food</span>
+            <span class="tab-text" data-en="Menu" data-de="Speisekarte">Menu</span>
         </button>
         <button class="menu-tab" data-tab="cocktails">
             <span class="tab-icon">🍹</span>
             <span class="tab-text" data-en="Cocktails" data-de="Cocktails">Cocktails</span>
-        </button>
-        <button class="menu-tab" data-tab="drinks">
-            <span class="tab-icon">🍺</span>
-            <span class="tab-text" data-en="Drinks" data-de="Getränke">Drinks</span>
         </button>
     </nav>
 
@@ -170,6 +166,77 @@
 
             <div class="menu-note">
                 <span data-en="Main courses €15–€25" data-de="Hauptgerichte €15–€25">Main courses €15–€25</span>
+            </div>
+
+            <!-- Drinks Section Header -->
+            <div class="drinks-section-divider">
+                <h2 data-en="Beer, Wine & Soft Drinks" data-de="Bier, Wein & Softdrinks">Beer, Wine & Soft Drinks</h2>
+            </div>
+
+            <!-- Beer -->
+            <div class="menu-category-card drinks-card">
+                <div class="category-title">
+                    <span class="category-emoji">🍺</span>
+                    <h2 data-en="Beer" data-de="Bier">Beer</h2>
+                </div>
+                <div class="drinks-list">
+                    <div class="drinks-group">
+                        <span class="drinks-group-title" data-en="Draft Beer" data-de="Vom Fass">Draft Beer</span>
+                        <span class="drinks-size">0.3L / 0.5L</span>
+                    </div>
+                    <div class="drinks-group">
+                        <span class="drinks-group-title" data-en="Bottled Beer" data-de="Flaschenbier">Bottled Beer</span>
+                        <div class="drinks-items">
+                            <span>Corona</span>
+                            <span>Desperados</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wine -->
+            <div class="menu-category-card drinks-card">
+                <div class="category-title">
+                    <span class="category-emoji">🍷</span>
+                    <h2 data-en="Wine" data-de="Wein">Wine</h2>
+                </div>
+                <div class="drinks-list">
+                    <div class="drinks-group">
+                        <span class="drinks-group-title" data-en="Open Wines 0.2L" data-de="Offene Weine 0.2L">Open Wines 0.2L</span>
+                        <div class="drinks-items">
+                            <span>Vin Tosun Merlot (Italien)</span>
+                            <span>Grillo Hauswein</span>
+                        </div>
+                    </div>
+                    <div class="drinks-group">
+                        <span class="drinks-group-title" data-en="Bottled Wines 0.75L" data-de="Flaschenweine 0.75L">Bottled Wines 0.75L</span>
+                        <span class="drinks-subtitle" data-en="Red & White Wine Selection" data-de="Rotwein & Weißwein Auswahl">Red & White Wine Selection</span>
+                    </div>
+                    <div class="drinks-group">
+                        <span class="drinks-group-title">Prosecco & Champagner</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soft Drinks -->
+            <div class="menu-category-card drinks-card">
+                <div class="category-title">
+                    <span class="category-emoji">🥤</span>
+                    <h2 data-en="Soft Drinks" data-de="Softdrinks">Soft Drinks</h2>
+                </div>
+                <div class="soft-drinks-grid">
+                    <span>Coca Cola</span>
+                    <span>Coca Cola Zero</span>
+                    <span>Fanta</span>
+                    <span>Sprite</span>
+                    <span>Bitter Lemon</span>
+                    <span>Ginger Ale</span>
+                    <span>Tonic Water</span>
+                </div>
+                <div class="drinks-group" style="margin-top: 1rem;">
+                    <span class="drinks-group-title" data-en="Fresh Juices" data-de="Frische Säfte">Fresh Juices</span>
+                    <div class="drinks-items" data-en="Pineapple • Apple • Cranberry • Grapefruit • Cherry • Orange" data-de="Ananas • Apfel • Cranberry • Grapefruit • Kirsch • Orange">Pineapple • Apple • Cranberry • Grapefruit • Cherry • Orange</div>
+                </div>
             </div>
 
             <a href="FridaYDiego-Menu-food.pdf" target="_blank" class="download-btn">
@@ -333,79 +400,6 @@
                 </svg>
                 <span data-en="Download Cocktail Menu (PDF)" data-de="Cocktailkarte (PDF)">Download Cocktail Menu (PDF)</span>
             </a>
-        </section>
-
-        <!-- DRINKS TAB -->
-        <section class="menu-section" id="drinks-section">
-            <div class="menu-section-header">
-                <h1 data-en="Beer, Wine & Soft Drinks" data-de="Bier, Wein & Softdrinks">Beer, Wine & Soft Drinks</h1>
-            </div>
-
-            <!-- Beer -->
-            <div class="menu-category-card drinks-card">
-                <div class="category-title">
-                    <span class="category-emoji">🍺</span>
-                    <h2 data-en="Beer" data-de="Bier">Beer</h2>
-                </div>
-                <div class="drinks-list">
-                    <div class="drinks-group">
-                        <span class="drinks-group-title" data-en="Draft Beer" data-de="Vom Fass">Draft Beer</span>
-                        <span class="drinks-size">0.3L / 0.5L</span>
-                    </div>
-                    <div class="drinks-group">
-                        <span class="drinks-group-title" data-en="Bottled Beer" data-de="Flaschenbier">Bottled Beer</span>
-                        <div class="drinks-items">
-                            <span>Corona</span>
-                            <span>Desperados</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Wine -->
-            <div class="menu-category-card drinks-card">
-                <div class="category-title">
-                    <span class="category-emoji">🍷</span>
-                    <h2 data-en="Wine" data-de="Wein">Wine</h2>
-                </div>
-                <div class="drinks-list">
-                    <div class="drinks-group">
-                        <span class="drinks-group-title" data-en="Open Wines 0.2L" data-de="Offene Weine 0.2L">Open Wines 0.2L</span>
-                        <div class="drinks-items">
-                            <span>Vin Tosun Merlot (Italien)</span>
-                            <span>Grillo Hauswein</span>
-                        </div>
-                    </div>
-                    <div class="drinks-group">
-                        <span class="drinks-group-title" data-en="Bottled Wines 0.75L" data-de="Flaschenweine 0.75L">Bottled Wines 0.75L</span>
-                        <span class="drinks-subtitle" data-en="Red & White Wine Selection" data-de="Rotwein & Weißwein Auswahl">Red & White Wine Selection</span>
-                    </div>
-                    <div class="drinks-group">
-                        <span class="drinks-group-title">Prosecco & Champagner</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Soft Drinks -->
-            <div class="menu-category-card drinks-card">
-                <div class="category-title">
-                    <span class="category-emoji">🥤</span>
-                    <h2 data-en="Soft Drinks" data-de="Softdrinks">Soft Drinks</h2>
-                </div>
-                <div class="soft-drinks-grid">
-                    <span>Coca Cola</span>
-                    <span>Coca Cola Zero</span>
-                    <span>Fanta</span>
-                    <span>Sprite</span>
-                    <span>Bitter Lemon</span>
-                    <span>Ginger Ale</span>
-                    <span>Tonic Water</span>
-                </div>
-                <div class="drinks-group" style="margin-top: 1rem;">
-                    <span class="drinks-group-title" data-en="Fresh Juices" data-de="Frische Säfte">Fresh Juices</span>
-                    <div class="drinks-items" data-en="Pineapple • Apple • Cranberry • Grapefruit • Cherry • Orange" data-de="Ananas • Apfel • Cranberry • Grapefruit • Kirsch • Orange">Pineapple • Apple • Cranberry • Grapefruit • Cherry • Orange</div>
-                </div>
-            </div>
         </section>
     </main>
 
