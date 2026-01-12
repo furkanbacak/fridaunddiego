@@ -20,6 +20,9 @@ function initNavigation() {
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
+    // Only run if navbar exists (main page)
+    if (!navbar || !navToggle || !navMenu) return;
+
     // Scroll effect for navbar
     let lastScroll = 0;
     window.addEventListener('scroll', () => {
@@ -65,8 +68,11 @@ function initNavigation() {
  */
 function initLanguageToggle() {
     const langToggle = document.getElementById('lang-toggle');
+    if (!langToggle) return;
+    
     const langActive = langToggle.querySelector('.lang-active');
     const langInactive = langToggle.querySelector('.lang-inactive');
+    if (!langActive || !langInactive) return;
     
     // Check for saved language preference
     let currentLang = localStorage.getItem('fridaDiegoLang') || 'en';
