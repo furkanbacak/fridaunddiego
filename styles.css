@@ -664,20 +664,20 @@ img {
 .bento-icon-wrapper {
     width: 56px;
     height: 56px;
-    background: linear-gradient(135deg, var(--golden-mustard), var(--terracotta-red));
+    background: var(--golden-mustard);
     border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1.25rem;
-    box-shadow: 0 8px 24px rgba(207, 92, 54, 0.25);
+    box-shadow: 0 8px 24px rgba(233, 196, 106, 0.5);
 }
 
 .bento-icon-wrapper svg {
     width: 26px;
     height: 26px;
     color: var(--deep-forest-green);
-    stroke-width: 2.5;
+    stroke-width: 2;
 }
 
 .bento-atmosphere h3,
