@@ -773,6 +773,39 @@ img {
     font-size: 1.1rem;
 }
 
+.menu-downloads {
+    margin-top: 2.5rem;
+    text-align: center;
+}
+
+.menu-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: var(--gradient-warm);
+    color: var(--soft-black);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    border-radius: 100px;
+    transition: all 0.4s var(--transition-smooth);
+}
+
+.menu-download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(201, 162, 39, 0.3);
+}
+
+.menu-download-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.menu-download-btn-alt {
+    background: var(--gradient-gold);
+}
+
 /* ============================================
    DRINKS SECTION
    ============================================ */
