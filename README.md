@@ -49,8 +49,8 @@ frida-diego-website/
 ├── script.js               # Language toggle and interactivity
 ├── frida-diego-logo.png    # Restaurant logo (transparent)
 ├── frida-diego-logo.jpeg   # Restaurant logo (original)
-├── FridaYDiego-Menu-food.pdf    # Food menu PDF
-├── Frida-cocktail-Menu.pdf      # Cocktail menu PDF
+├── Frida-Diego-Food-Menu.pdf    # Food menu PDF
+├── Frida-Diego-Cocktail-Menu.pdf      # Cocktail menu PDF
 └── README.md               # This file
 ```
 
