@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Menu | Frida & Diego - Mexican Restaurant Berlin</title>
+    <meta name="description" content="Full menu of Frida & Diego - Mexican Restaurant & Cocktail Bar. Food, Cocktails, Beer, Wine & Soft Drinks.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="menu-page.css">
+</head>
+<body class="menu-page-body">
+    <!-- Compact Header -->
+    <header class="menu-header">
+        <div class="menu-header-content">
+            <a href="index.html" class="menu-logo-link">
+                <img src="frida-diego-logo.png" alt="Frida & Diego" class="menu-logo">
+            </a>
+            <div class="menu-header-right">
+                <button class="lang-toggle-mini" id="lang-toggle">
+                    <span class="lang-active">EN</span>
+                    <span class="lang-divider">/</span>
+                    <span class="lang-inactive">DE</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Tab Navigation -->
+    <nav class="menu-tabs">
+        <button class="menu-tab active" data-tab="food">
+            <span class="tab-icon">🍽️</span>
+            <span class="tab-text" data-en="Food" data-de="Essen">Food</span>
+        </button>
+        <button class="menu-tab" data-tab="cocktails">
+            <span class="tab-icon">🍹</span>
+            <span class="tab-text" data-en="Cocktails" data-de="Cocktails">Cocktails</span>
+        </button>
+        <button class="menu-tab" data-tab="drinks">
+            <span class="tab-icon">🍺</span>
+            <span class="tab-text" data-en="Drinks" data-de="Getränke">Drinks</span>
+        </button>
+    </nav>
+
+    <!-- Menu Content -->
+    <main class="menu-content">
+        <!-- FOOD TAB -->
+        <section class="menu-section active" id="food-section">
+            <div class="menu-section-header">
+                <h1 data-en="Food Menu" data-de="Speisekarte">Food Menu</h1>
+                <p data-en="A celebration of Mexican & Tex-Mex flavors" data-de="Eine Feier mexikanischer & Tex-Mex Aromen">A celebration of Mexican & Tex-Mex flavors</p>
+            </div>
+
+            <!-- Starters -->
+            <div class="menu-category-card">
+                <div class="category-title">
+                    <span class="category-emoji">🥑</span>
+                    <h2 data-en="Starters & Snacks" data-de="Vorspeisen & Snacks">Starters & Snacks</h2>
+                </div>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="item-name">Guacamole</span>
+                        <span class="item-desc" data-en="Fresh avocado dip with tortilla chips" data-de="Frischer Avocado-Dip mit Tortilla-Chips">Fresh avocado dip with tortilla chips</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="item-name">Nachos</span>
+                        <span class="item-desc" data-en="Loaded with cheese, jalapeños, salsa & sour cream" data-de="Mit Käse, Jalapeños, Salsa & Sauerrahm">Loaded with cheese, jalapeños, salsa & sour cream</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="item-name">Quesadillas</span>
+                        <span class="item-desc" data-en="Grilled tortilla with melted cheese & fillings" data-de="Gegrillte Tortilla mit geschmolzenem Käse & Füllungen">Grilled tortilla with melted cheese & fillings</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="item-name">Jalapeño Poppers</span>
+                        <span class="item-desc" data-en="Cream cheese stuffed jalapeños, breaded & fried" data-de="Mit Frischkäse gefüllte Jalapeños, paniert & frittiert">Cream cheese stuffed jalapeños, breaded & fried</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tacos & Enchiladas -->
+            <div class="menu-category-card">
+                <div class="category-title">
+                    <span class="category-emoji">🌮</span>
+                    <h2 data-en="Tacos & Enchiladas" data-de="Tacos & Enchiladas">Tacos & Enchiladas</h2>
+                </div>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="item-name">Tacos (3 pcs)</span>
+                        <span class="item-desc" data-en="Choice of chicken, beef, or veggie with salsa & guacamole" data-de="Wahl aus Hähnchen, Rind oder Gemüse mit Salsa & Guacamole">Choice of chicken, beef, or veggie with salsa & guacamole</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="item-name">Enchiladas</span>
+                        <span class="item-desc" data-en="Corn tortillas filled & baked with red or green sauce" data-de="Gefüllte Maistortillas, überbacken mit roter oder grüner Sauce">Corn tortillas filled & baked with red or green sauce</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="item-name">Fish Tacos</span>
+                        <span class="item-desc" data-en="Crispy fish, cabbage slaw, chipotle mayo" data-de="Knuspriger Fisch, Krautsalat, Chipotle-Mayo">Crispy fish, cabbage slaw, chipotle mayo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fajitas -->
+            <div class="menu-category-card featured">
+                <div class="category-badge" data-en="House Favorite" data-de="Hausempfehlung">House Favorite</div>
+                <div class="category-title">
+                    <span class="category-emoji">🔥</span>
+                    <h2 data-en="Sizzling Fajitas" data-de="Brutzelnde Fajitas">Sizzling Fajitas</h2>
+                </div>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="item-name">Chicken Fajitas</span>
+                        <span class="item-desc" data-en="Served sizzling with peppers, onions & warm tortillas" data-de="Serviert brutzend mit Paprika, Zwiebeln & warmen Tortillas">Served sizzling with peppers, onions & warm tortillas</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="item-name">Beef Fajitas</span>
+                        <span class="item-desc" data-en="Premium strips with peppers, onions & warm tortillas" data-de="Premium-Streifen mit Paprika, Zwiebeln & warmen Tortillas">Premium strips with peppers, onions & warm tortillas</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="item-name">Mixed Fajitas</span>
+                        <span class="item-desc" data-en="Chicken & beef combination" data-de="Hähnchen & Rind Kombination">Chicken & beef combination</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="item-name">Shrimp Fajitas</span>
+                        <span class="item-desc" data-en="Jumbo shrimp with garlic butter" data-de="Riesengarnelen mit Knoblauchbutter">Jumbo shrimp with garlic butter</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Steaks -->
+            <div class="menu-category-card">
+                <div class="category-title">
+                    <span class="category-emoji">🥩</span>
+                    <h2 data-en="Argentinian Steaks" data-de="Argentinische Steaks">Argentinian Steaks</h2>
+                </div>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="item-name">Rump Steak</span>
+                        <span class="item-desc" data-en="Grilled to perfection with chimichurri" data-de="Perfekt gegrillt mit Chimichurri">Grilled to perfection with chimichurri</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="item-name">Entrecôte</span>
+                        <span class="item-desc" data-en="Premium ribeye with your choice of sides" data-de="Premium-Ribeye mit Beilagen nach Wahl">Premium ribeye with your choice of sides</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Specialties -->
+            <div class="menu-category-card">
+                <div class="category-title">
+                    <span class="category-emoji">✨</span>
+                    <h2 data-en="Specialties" data-de="Spezialitäten">Specialties</h2>
+                </div>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="item-name">Mole Poblano</span>
+                        <span class="item-desc" data-en="Tender chicken in rich chocolate-chili sauce" data-de="Zartes Hähnchen in reichhaltiger Schokoladen-Chili-Sauce">Tender chicken in rich chocolate-chili sauce</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="item-name">Chimichangas</span>
+                        <span class="item-desc" data-en="Deep-fried burritos, golden & crispy" data-de="Frittierte Burritos, golden & knusprig">Deep-fried burritos, golden & crispy</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="item-name">Burrito Grande</span>
+                        <span class="item-desc" data-en="Large flour tortilla with rice, beans & your choice of filling" data-de="Große Weizentortilla mit Reis, Bohnen & Füllung nach Wahl">Large flour tortilla with rice, beans & your choice of filling</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-note">
+                <span data-en="Main courses €15–€25" data-de="Hauptgerichte €15–€25">Main courses €15–€25</span>
+            </div>
+
+            <a href="FridaYDiego-Menu-food.pdf" target="_blank" class="download-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                    <polyline points="14,2 14,8 20,8"/>
+                    <line x1="12" y1="18" x2="12" y2="12"/>
+                    <polyline points="9,15 12,18 15,15"/>
+                </svg>
+                <span data-en="Download Full Menu (PDF)" data-de="Vollständige Karte (PDF)">Download Full Menu (PDF)</span>
+            </a>
+        </section>
+
+        <!-- COCKTAILS TAB -->
+        <section class="menu-section" id="cocktails-section">
+            <div class="menu-section-header">
+                <h1 data-en="Cocktails" data-de="Cocktails">Cocktails</h1>
+                <p data-en="Handcrafted drinks from our bar" data-de="Handgemachte Drinks von unserer Bar">Handcrafted drinks from our bar</p>
+            </div>
+
+            <!-- Frida Specials -->
+            <div class="menu-category-card cocktail-card">
+                <div class="category-title">
+                    <span class="category-emoji">🌺</span>
+                    <h2>Frida Specials</h2>
+                </div>
+                <p class="category-vibe" data-en="Fresh • Floral • Citrus • Elegant • Romantic" data-de="Frisch • Blumig • Zitrus • Elegant • Romantisch">Fresh • Floral • Citrus • Elegant • Romantic</p>
+                <div class="cocktail-grid">
+                    <div class="cocktail-item">
+                        <span class="cocktail-name">Frida's Kiss</span>
+                        <span class="cocktail-ingredients">Tequila Blanco, Hibiscus, Citrus, Triple Sec</span>
+                    </div>
+                    <div class="cocktail-item">
+                        <span class="cocktail-name">Viva La Vida</span>
+                        <span class="cocktail-ingredients">Tequila Blanco, Passionfruit, Pineapple, Rose, Citrus</span>
+                    </div>
+                    <div class="cocktail-item">
+                        <span class="cocktail-name">Flor Blanca</span>
+                        <span class="cocktail-ingredients">Gin, Elderflower, Cucumber Bitters, Citrus, Tonic</span>
+                    </div>
+                    <div class="cocktail-item">
+                        <span class="cocktail-name">Rosa de Noche</span>
+                        <span class="cocktail-ingredients">Gin, Rose, Raspberry, Citrus</span>
+                    </div>
+                    <div class="cocktail-item">
+                        <span class="cocktail-name">Amor Loco</span>
+                        <span class="cocktail-ingredients">Vodka, Chili, Citrus, Ginger, Triple Sec</span>
+                    </div>
+                    <div class="cocktail-item">
+                        <span class="cocktail-name">Azul Encantado</span>
+                        <span class="cocktail-ingredients">Vodka, Elderflower, Pineapple, Citrus, Blue Curaçao</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diego Specials -->
+            <div class="menu-category-card cocktail-card">
+                <div class="category-title">
+                    <span class="category-emoji">🎨</span>
+                    <h2>Diego Specials</h2>
+                </div>
+                <p class="category-vibe" data-en="Dark • Bitter • Strong • Masculine • Dramatic" data-de="Dunkel • Bitter • Stark • Maskulin • Dramatisch">Dark • Bitter • Strong • Masculine • Dramatic</p>
+                <div class="cocktail-grid">
+                    <div class="cocktail-item">
+                        <span class="cocktail-name">El Fuego Negroni</span>
+                        <span class="cocktail-ingredients">Mezcal, Campari, Vermouth Rosso</span>
+                    </div>
+                    <div class="cocktail-item">
+                        <span class="cocktail-name">Diego's Old Fashioned</span>
+                        <span class="cocktail-ingredients">Tequila Reposado, Muscovado, Cocoa Bitters</span>
+                    </div>
+                    <div class="cocktail-item">
+                        <span class="cocktail-name">Noche de Sangre</span>
+                        <span class="cocktail-ingredients">Tequila Reposado, Blackberry, Chili, Citrus</span>
+                    </div>
+                    <div class="cocktail-item">
+                        <span class="cocktail-name">Humo y Miel</span>
+                        <span class="cocktail-ingredients">Mezcal, Honey, Orange, Citrus, Salt</span>
+                    </div>
+                    <div class="cocktail-item">
+                        <span class="cocktail-name">Ron Oscuro</span>
+                        <span class="cocktail-ingredients">Rum, Fernet Branca, Citrus</span>
+                    </div>
+                    <div class="cocktail-item">
+                        <span class="cocktail-name">Café de Amor</span>
+                        <span class="cocktail-ingredients">Spiced Rum, Kahlúa, Vanilla, Citrus</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Classics -->
+            <div class="menu-category-card cocktail-card">
+                <div class="category-title">
+                    <span class="category-emoji">🍸</span>
+                    <h2 data-en="Classics" data-de="Klassiker">Classics</h2>
+                </div>
+                <div class="classics-grid">
+                    <span class="classic-item">Margarita</span>
+                    <span class="classic-item">Paloma</span>
+                    <span class="classic-item">Espresso Martini</span>
+                    <span class="classic-item">Moscow Mule</span>
+                    <span class="classic-item">Negroni</span>
+                    <span class="classic-item">Sex on the Beach</span>
+                    <span class="classic-item">Old Fashioned</span>
+                    <span class="classic-item">Caipirinha</span>
+                    <span class="classic-item">Piña Colada</span>
+                    <span class="classic-item">Mojito</span>
+                    <span class="classic-item">Mai Tai</span>
+                    <span class="classic-item">Frozen Daiquiri</span>
+                </div>
+            </div>
+
+            <!-- Spritz -->
+            <div class="menu-category-card cocktail-card">
+                <div class="category-title">
+                    <span class="category-emoji">✨</span>
+                    <h2>Spritz Specials</h2>
+                </div>
+                <div class="classics-grid">
+                    <span class="classic-item">Aperol Spritz</span>
+                    <span class="classic-item">Hugo Spritz</span>
+                    <span class="classic-item">Rosé Berry Spritz</span>
+                    <span class="classic-item">Passion Spritz</span>
+                    <span class="classic-item">Mango Spritz</span>
+                    <span class="classic-item">Hibiscus Blanco Spritz</span>
+                </div>
+            </div>
+
+            <!-- Mocktails -->
+            <div class="menu-category-card cocktail-card">
+                <div class="category-title">
+                    <span class="category-emoji">🌿</span>
+                    <h2 data-en="Mocktails (Alcohol-Free)" data-de="Mocktails (Alkoholfrei)">Mocktails (Alcohol-Free)</h2>
+                </div>
+                <div class="cocktail-grid">
+                    <div class="cocktail-item">
+                        <span class="cocktail-name">Virgin Margarita</span>
+                        <span class="cocktail-ingredients">Agave, Pineapple, Orange, Citrus, Salt</span>
+                    </div>
+                    <div class="cocktail-item">
+                        <span class="cocktail-name">Tropical Loco</span>
+                        <span class="cocktail-ingredients">Pineapple, Coconut, Citrus, Vanilla</span>
+                    </div>
+                    <div class="cocktail-item">
+                        <span class="cocktail-name">Berry Kiss</span>
+                        <span class="cocktail-ingredients">Strawberry, Citrus, Elderflower Tonic</span>
+                    </div>
+                    <div class="cocktail-item">
+                        <span class="cocktail-name">Passion Cooler</span>
+                        <span class="cocktail-ingredients">Passionfruit, Citrus, Soda</span>
+                    </div>
+                </div>
+            </div>
+
+            <a href="Frida-cocktail-Menu.pdf" target="_blank" class="download-btn download-btn-alt">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                    <polyline points="14,2 14,8 20,8"/>
+                    <line x1="12" y1="18" x2="12" y2="12"/>
+                    <polyline points="9,15 12,18 15,15"/>
+                </svg>
+                <span data-en="Download Cocktail Menu (PDF)" data-de="Cocktailkarte (PDF)">Download Cocktail Menu (PDF)</span>
+            </a>
+        </section>
+
+        <!-- DRINKS TAB -->
+        <section class="menu-section" id="drinks-section">
+            <div class="menu-section-header">
+                <h1 data-en="Beer, Wine & Soft Drinks" data-de="Bier, Wein & Softdrinks">Beer, Wine & Soft Drinks</h1>
+            </div>
+
+            <!-- Beer -->
+            <div class="menu-category-card drinks-card">
+                <div class="category-title">
+                    <span class="category-emoji">🍺</span>
+                    <h2 data-en="Beer" data-de="Bier">Beer</h2>
+                </div>
+                <div class="drinks-list">
+                    <div class="drinks-group">
+                        <span class="drinks-group-title" data-en="Draft Beer" data-de="Vom Fass">Draft Beer</span>
+                        <span class="drinks-size">0.3L / 0.5L</span>
+                    </div>
+                    <div class="drinks-group">
+                        <span class="drinks-group-title" data-en="Bottled Beer" data-de="Flaschenbier">Bottled Beer</span>
+                        <div class="drinks-items">
+                            <span>Corona</span>
+                            <span>Desperados</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wine -->
+            <div class="menu-category-card drinks-card">
+                <div class="category-title">
+                    <span class="category-emoji">🍷</span>
+                    <h2 data-en="Wine" data-de="Wein">Wine</h2>
+                </div>
+                <div class="drinks-list">
+                    <div class="drinks-group">
+                        <span class="drinks-group-title" data-en="Open Wines 0.2L" data-de="Offene Weine 0.2L">Open Wines 0.2L</span>
+                        <div class="drinks-items">
+                            <span>Vin Tosun Merlot (Italien)</span>
+                            <span>Grillo Hauswein</span>
+                        </div>
+                    </div>
+                    <div class="drinks-group">
+                        <span class="drinks-group-title" data-en="Bottled Wines 0.75L" data-de="Flaschenweine 0.75L">Bottled Wines 0.75L</span>
+                        <span class="drinks-subtitle" data-en="Red & White Wine Selection" data-de="Rotwein & Weißwein Auswahl">Red & White Wine Selection</span>
+                    </div>
+                    <div class="drinks-group">
+                        <span class="drinks-group-title">Prosecco & Champagner</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soft Drinks -->
+            <div class="menu-category-card drinks-card">
+                <div class="category-title">
+                    <span class="category-emoji">🥤</span>
+                    <h2 data-en="Soft Drinks" data-de="Softdrinks">Soft Drinks</h2>
+                </div>
+                <div class="soft-drinks-grid">
+                    <span>Coca Cola</span>
+                    <span>Coca Cola Zero</span>
+                    <span>Fanta</span>
+                    <span>Sprite</span>
+                    <span>Bitter Lemon</span>
+                    <span>Ginger Ale</span>
+                    <span>Tonic Water</span>
+                </div>
+                <div class="drinks-group" style="margin-top: 1rem;">
+                    <span class="drinks-group-title" data-en="Fresh Juices" data-de="Frische Säfte">Fresh Juices</span>
+                    <div class="drinks-items" data-en="Pineapple • Apple • Cranberry • Grapefruit • Cherry • Orange" data-de="Ananas • Apfel • Cranberry • Grapefruit • Kirsch • Orange">Pineapple • Apple • Cranberry • Grapefruit • Cherry • Orange</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Allergens Section -->
+    <section class="menu-allergens">
+        <div class="allergens-toggle" id="allergens-toggle">
+            <span data-en="Additives & Allergens" data-de="Zusatzstoffe & Allergene">Additives & Allergens</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+            </svg>
+        </div>
+        <div class="allergens-content" id="allergens-content">
+            <p class="allergens-subtitle" data-en="Information according to LMIV (EU Regulation 1169/2011)" data-de="Informationen gemäß LMIV (EU-Verordnung 1169/2011)">Information according to LMIV (EU Regulation 1169/2011)</p>
+            <div class="allergens-grid">
+                <div class="allergens-column">
+                    <h4 data-en="Additives" data-de="Zusatzstoffe">Additives</h4>
+                    <div class="allergen-items">
+                        <span><b>1</b> <span data-en="with coloring" data-de="mit Farbstoff">with coloring</span></span>
+                        <span><b>2</b> <span data-en="with preservative" data-de="mit Konservierungsstoff">with preservative</span></span>
+                        <span><b>3</b> <span data-en="with antioxidant" data-de="mit Antioxidationsmittel">with antioxidant</span></span>
+                        <span><b>4</b> <span data-en="with flavor enhancer" data-de="mit Geschmacksverstärker">with flavor enhancer</span></span>
+                        <span><b>5</b> <span data-en="sulfured" data-de="geschwefelt">sulfured</span></span>
+                        <span><b>6</b> <span data-en="blackened" data-de="geschwärzt">blackened</span></span>
+                        <span><b>7</b> <span data-en="waxed" data-de="gewachst">waxed</span></span>
+                        <span><b>8</b> <span data-en="with phosphate" data-de="mit Phosphat">with phosphate</span></span>
+                        <span><b>9</b> <span data-en="with sweetener" data-de="mit Süßungsmittel">with sweetener</span></span>
+                        <span><b>10</b> <span data-en="phenylalanine" data-de="Phenylalaninquelle">phenylalanine</span></span>
+                        <span><b>11</b> <span data-en="with caffeine" data-de="koffeinhaltig">with caffeine</span></span>
+                        <span><b>12</b> <span data-en="contains quinine" data-de="chininhaltig">contains quinine</span></span>
+                    </div>
+                </div>
+                <div class="allergens-column">
+                    <h4 data-en="Allergens" data-de="Allergene">Allergens</h4>
+                    <div class="allergen-items">
+                        <span><b>A</b> <span data-en="Gluten" data-de="Gluten">Gluten</span></span>
+                        <span><b>B</b> <span data-en="Crustaceans" data-de="Krebstiere">Crustaceans</span></span>
+                        <span><b>C</b> <span data-en="Eggs" data-de="Eier">Eggs</span></span>
+                        <span><b>D</b> <span data-en="Fish" data-de="Fisch">Fish</span></span>
+                        <span><b>E</b> <span data-en="Peanuts" data-de="Erdnüsse">Peanuts</span></span>
+                        <span><b>F</b> <span data-en="Soybeans" data-de="Sojabohnen">Soybeans</span></span>
+                        <span><b>G</b> <span data-en="Milk/Lactose" data-de="Milch/Laktose">Milk/Lactose</span></span>
+                        <span><b>H</b> <span data-en="Nuts" data-de="Schalenfrüchte">Nuts</span></span>
+                        <span><b>I</b> <span data-en="Celery" data-de="Sellerie">Celery</span></span>
+                        <span><b>J</b> <span data-en="Mustard" data-de="Senf">Mustard</span></span>
+                        <span><b>K</b> <span data-en="Sesame" data-de="Sesam">Sesame</span></span>
+                        <span><b>L</b> <span data-en="Sulfites" data-de="Sulfite">Sulfites</span></span>
+                        <span><b>M</b> <span data-en="Lupins" data-de="Lupinen">Lupins</span></span>
+                        <span><b>N</b> <span data-en="Mollusks" data-de="Weichtiere">Mollusks</span></span>
+                    </div>
+                </div>
+            </div>
+            <p class="allergens-note" data-en="Please inform our staff about any food allergies before ordering." data-de="Bitte informieren Sie unser Personal vor der Bestellung über Allergien.">Please inform our staff about any food allergies before ordering.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="menu-footer">
+        <div class="footer-info">
+            <p><strong>Frida & Diego</strong></p>
+            <p>Fuggerstraße 28, 10777 Berlin</p>
+            <p data-en="Daily 17:00 – Midnight" data-de="Täglich 17:00 – Mitternacht">Daily 17:00 – Midnight</p>
+        </div>
+        <div class="footer-social-mini">
+            <a href="https://instagram.com/fridaunddiego" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="2" y="2" width="20" height="20" rx="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="18" cy="6" r="1.5" fill="currentColor" stroke="none"/>
+                </svg>
+            </a>
+            <a href="https://share.google/JZHSs9rwtgosXiVL3" target="_blank" rel="noopener" aria-label="Google Reviews">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+            </a>
+        </div>
+        <a href="index.html" class="back-to-site" data-en="← Back to Website" data-de="← Zur Website">← Back to Website</a>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Tab switching
+        document.querySelectorAll('.menu-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active from all tabs
+                document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.menu-section').forEach(s => s.classList.remove('active'));
+                
+                // Add active to clicked tab
+                tab.classList.add('active');
+                const sectionId = tab.dataset.tab + '-section';
+                document.getElementById(sectionId).classList.add('active');
+                
+                // Scroll to top of content
+                document.querySelector('.menu-content').scrollTop = 0;
+            });
+        });
+
+        // Allergens toggle
+        document.getElementById('allergens-toggle').addEventListener('click', () => {
+            const content = document.getElementById('allergens-content');
+            const toggle = document.getElementById('allergens-toggle');
+            content.classList.toggle('open');
+            toggle.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
+

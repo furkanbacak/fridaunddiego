@@ -776,6 +776,32 @@ img {
 .menu-downloads {
     margin-top: 2.5rem;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+@media (max-width: 600px) {
+    .menu-downloads {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .menu-download-btn {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+    }
+}
+
+.menu-view-btn {
+    background: var(--gradient-cool);
+    color: var(--cream);
+}
+
+.menu-view-btn:hover {
+    box-shadow: 0 15px 40px rgba(26, 74, 64, 0.4);
 }
 
 .menu-download-btn {
@@ -1490,6 +1516,251 @@ img {
 .footer-bottom p {
     color: rgba(250, 243, 224, 0.4);
     font-size: 0.85rem;
+}
+
+/* ============================================
+   ENHANCED MOBILE RESPONSIVENESS
+   ============================================ */
+
+/* Small phones */
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    /* Hero mobile */
+    .hero-logo-img {
+        max-width: 260px;
+    }
+    
+    .hero-cta {
+        padding: 0.875rem 2rem;
+        font-size: 0.85rem;
+    }
+    
+    .hero-scroll {
+        bottom: 1.5rem;
+    }
+    
+    .scroll-line {
+        height: 40px;
+    }
+    
+    /* Section headers mobile */
+    .section-header {
+        margin-bottom: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-tag {
+        font-size: 0.75rem;
+    }
+    
+    /* About section mobile */
+    .about-card {
+        padding: 1.5rem;
+    }
+    
+    .about-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .about-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .about-features {
+        gap: 0.75rem;
+    }
+    
+    .feature {
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    /* Menu section mobile */
+    .menu-category {
+        padding: 1.5rem;
+    }
+    
+    .category-icon {
+        font-size: 1.5rem;
+    }
+    
+    .menu-category h3 {
+        font-size: 1.25rem;
+    }
+    
+    .category-desc {
+        font-size: 0.9rem;
+    }
+    
+    .menu-price-note {
+        padding: 1rem;
+        border-radius: 12px;
+    }
+    
+    .menu-download-btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.85rem;
+    }
+    
+    /* Drinks section mobile */
+    .drinks-category-title {
+        font-size: 1.25rem;
+    }
+    
+    .drink-item {
+        padding: 1rem;
+    }
+    
+    .drink-name {
+        font-size: 1rem;
+    }
+    
+    .drink-ingredients {
+        font-size: 0.8rem;
+    }
+    
+    .drinks-grid-compact {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .drink-item-compact {
+        padding: 0.6rem 0.75rem;
+        font-size: 0.8rem;
+    }
+    
+    /* Beverages section mobile */
+    .beverage-category {
+        padding: 1.5rem;
+    }
+    
+    .beverage-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    .beverage-items-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Contact section mobile */
+    .contact-card {
+        padding: 1.5rem;
+    }
+    
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .contact-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .contact-social {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .social-link {
+        width: 100%;
+        justify-content: center;
+        padding: 0.875rem 1.25rem;
+    }
+    
+    .contact-map iframe {
+        height: 250px;
+    }
+    
+    /* Legal section mobile */
+    .legal-header h3 {
+        font-size: 1.25rem;
+    }
+    
+    .legal-list {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+    }
+    
+    .legal-list li {
+        font-size: 0.8rem;
+    }
+    
+    /* Footer mobile */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-brand {
+        max-width: 100%;
+    }
+    
+    .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem 1.5rem;
+    }
+    
+    .footer-links a {
+        font-size: 0.8rem;
+    }
+}
+
+/* Medium phones */
+@media (max-width: 600px) {
+    .drinks-grid-compact {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+    /* Larger tap targets */
+    .nav-link {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .lang-toggle {
+        padding: 0.6rem 1.25rem;
+    }
+    
+    .hero-cta {
+        padding: 1.125rem 2.5rem;
+    }
+    
+    .menu-download-btn {
+        padding: 1.125rem 2rem;
+    }
+    
+    .social-link {
+        padding: 1.125rem 1.5rem;
+    }
+    
+    /* Remove hover effects on touch */
+    .about-card:hover,
+    .menu-category:hover,
+    .drink-item:hover,
+    .beverage-category:hover,
+    .contact-card:hover {
+        transform: none;
+    }
+    
+    .menu-category:hover::before {
+        transform: scaleX(0);
+    }
 }
 
 /* ============================================
