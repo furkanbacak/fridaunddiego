@@ -1377,7 +1377,7 @@ img {
 
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin-bottom: 3rem;
 }
@@ -1430,6 +1430,36 @@ img {
 .contact-card p {
     color: rgba(250, 243, 224, 0.7);
     font-size: 1rem;
+    line-height: 1.8;
+}
+
+.contact-phone-link,
+.contact-email-link {
+    color: var(--gold);
+    text-decoration: none;
+    transition: all 0.3s var(--transition-smooth);
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    margin: 0.25rem 0;
+}
+
+.contact-phone-link:hover,
+.contact-email-link:hover {
+    color: var(--cream);
+    transform: translateY(-2px);
+    border-bottom-color: var(--gold);
+    text-decoration: none;
+}
+
+.contact-phone-link:active,
+.contact-email-link:active {
+    transform: translateY(0);
+}
+
+.contact-card p a {
+    display: block;
     line-height: 1.8;
 }
 
@@ -2207,6 +2237,29 @@ img {
     font-size: 0.95rem;
     line-height: 1.7;
     color: rgba(250, 243, 224, 0.75);
+}
+
+.reservation-contact-link {
+    color: var(--gold);
+    text-decoration: none;
+    transition: all 0.3s var(--transition-smooth);
+    display: block;
+    cursor: pointer;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    margin: 0.25rem 0;
+    line-height: 1.8;
+}
+
+.reservation-contact-link:hover {
+    color: var(--cream);
+    border-bottom-color: var(--gold);
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+.reservation-contact-link:active {
+    transform: translateY(0);
 }
 
 .nav-link-active {
