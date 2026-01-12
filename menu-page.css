@@ -256,6 +256,59 @@
     line-height: 1.4;
 }
 
+/* Menu Item Groups with Variants */
+.menu-item-group {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.menu-item-group:last-child {
+    border-bottom: none;
+}
+
+.item-group-header {
+    margin-bottom: 0.5rem;
+}
+
+.item-group-header .item-name {
+    display: block;
+    font-weight: 600;
+    color: var(--cream);
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.item-group-header .item-desc {
+    display: block;
+    font-size: 0.8rem;
+    color: rgba(250, 243, 224, 0.6);
+}
+
+.item-variants {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding-left: 1rem;
+    border-left: 2px solid rgba(233, 196, 106, 0.3);
+    margin-left: 0.5rem;
+}
+
+.item-variant {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: rgba(250, 243, 224, 0.85);
+}
+
+.variant-price {
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
 .category-note {
     font-size: 0.75rem;
     color: rgba(250, 243, 224, 0.6);
