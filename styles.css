@@ -676,7 +676,8 @@ img {
 .bento-icon-wrapper svg {
     width: 26px;
     height: 26px;
-    color: var(--soft-black);
+    color: var(--deep-forest-green);
+    stroke-width: 2.5;
 }
 
 .bento-atmosphere h3,
