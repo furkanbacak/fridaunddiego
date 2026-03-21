@@ -27,7 +27,7 @@ const EMAILJS_CONFIG = {
 };
 
 // Initialize EmailJS
-(function() {
+(function () {
     if (typeof emailjs !== 'undefined') {
         emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
     }
@@ -38,7 +38,82 @@ document.addEventListener('DOMContentLoaded', () => {
     initDatePicker();
     initPlaceholderLanguage();
     initFormMessageLanguage();
+    initSuccessBlock();
 });
+
+/**
+ * Update translations for elements inside a specific container
+ */
+function updateElementTranslations(container, lang) {
+    const elements = container.querySelectorAll('[data-en][data-de]');
+    elements.forEach(el => {
+        const text = el.getAttribute(`data-${lang}`);
+        if (text) {
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                el.placeholder = text;
+            } else {
+                el.innerHTML = text; // or textContent but since it has children like span sometimes
+            }
+        }
+    });
+
+    // Special handling for the button span
+    const btnSpan = container.querySelector('#book-another-btn span');
+    if (btnSpan) {
+        const spanText = btnSpan.getAttribute(`data-${lang}`);
+        if (spanText) btnSpan.textContent = spanText;
+    }
+}
+
+/**
+ * Initialize the success block functionality
+ */
+function initSuccessBlock() {
+    const bookAnotherBtn = document.getElementById('book-another-btn');
+    const form = document.getElementById('reservation-form');
+    const successBlock = document.getElementById('reservation-success');
+    const messageDiv = document.getElementById('form-message');
+
+    if (bookAnotherBtn && form && successBlock) {
+        bookAnotherBtn.addEventListener('click', () => {
+            successBlock.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            successBlock.style.opacity = '0';
+            successBlock.style.transform = 'translateY(10px)';
+
+            setTimeout(() => {
+                successBlock.style.display = 'none';
+
+                messageDiv.textContent = '';
+                messageDiv.className = 'form-message';
+
+                form.style.display = 'block';
+                form.style.opacity = '0';
+                form.style.transform = 'translateY(20px)';
+
+                // Force reflow
+                void form.offsetWidth;
+
+                form.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                form.style.opacity = '1';
+                form.style.transform = 'translateY(0)';
+            }, 300);
+        });
+    }
+
+    // Add language override toggle listener for success block too
+    const langToggle = document.getElementById('lang-toggle');
+    if (langToggle && successBlock) {
+        langToggle.addEventListener('click', () => {
+            setTimeout(() => {
+                const lang = localStorage.getItem('fridaDiegoLang') || 'en';
+                // Only update if visible
+                if (successBlock.style.display === 'block') {
+                    updateElementTranslations(successBlock, lang);
+                }
+            }, 100);
+        });
+    }
+}
 
 /**
  * Update form messages when language changes
@@ -46,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function initFormMessageLanguage() {
     const messageDiv = document.getElementById('form-message');
     if (!messageDiv) return;
-    
+
     const langToggle = document.getElementById('lang-toggle');
     if (langToggle) {
         langToggle.addEventListener('click', () => {
@@ -57,7 +132,7 @@ function initFormMessageLanguage() {
                 if (enText && deText && messageDiv.textContent) {
                     messageDiv.textContent = lang === 'de' ? deText : enText;
                 }
-                
+
                 // Update page title
                 if (lang === 'de') {
                     document.title = 'Reservierung | Frida & Diego';
@@ -91,19 +166,19 @@ function initReservationForm() {
  */
 async function handleFormSubmit(e) {
     e.preventDefault();
-    
+
     const form = e.target;
     const submitBtn = form.querySelector('.reservation-submit-btn');
     const messageDiv = document.getElementById('form-message');
-    
+
     // Disable submit button
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<span data-en="Sending..." data-de="Wird gesendet...">Sending...</span>';
-    
+
     // Clear previous messages
     messageDiv.className = 'form-message';
     messageDiv.textContent = '';
-    
+
     // Get form data
     const formData = {
         name: form.querySelector('#name').value.trim(),
@@ -114,17 +189,17 @@ async function handleFormSubmit(e) {
         time: form.querySelector('#time').value,
         specialRequests: form.querySelector('#special-requests').value.trim() || 'None'
     };
-    
+
     // Validate form
     if (!validateForm(formData)) {
         showMessage(messageDiv, 'error', 'Please fill in all required fields.', 'Bitte füllen Sie alle Pflichtfelder aus.');
         resetSubmitButton(submitBtn);
         return;
     }
-    
+
     // Format date for display
     const formattedDate = formatDate(formData.date);
-    
+
     // Prepare email template parameters
     const templateParams = {
         to_email: 'fridaunddiego.berlin@gmail.com',
@@ -137,11 +212,11 @@ async function handleFormSubmit(e) {
         special_requests: formData.specialRequests,
         message: `New Reservation Request\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nGuests: ${formData.guests}\nDate: ${formattedDate}\nTime: ${formData.time}\nSpecial Requests: ${formData.specialRequests}`
     };
-    
+
     try {
         // Check if EmailJS is configured
-        if (EMAILJS_CONFIG.PUBLIC_KEY === 'YOUR_PUBLIC_KEY' || 
-            EMAILJS_CONFIG.SERVICE_ID === 'YOUR_SERVICE_ID' || 
+        if (EMAILJS_CONFIG.PUBLIC_KEY === 'YOUR_PUBLIC_KEY' ||
+            EMAILJS_CONFIG.SERVICE_ID === 'YOUR_SERVICE_ID' ||
             EMAILJS_CONFIG.TEMPLATE_ID === 'YOUR_TEMPLATE_ID') {
             // EmailJS not configured - use mailto fallback
             const subject = encodeURIComponent(`Reservation Request - ${formattedDate} at ${formData.time}`);
@@ -158,25 +233,25 @@ async function handleFormSubmit(e) {
                 `This reservation was submitted through the website form.`
             );
             const mailtoLink = `mailto:fridaunddiego.berlin@gmail.com?subject=${subject}&body=${body}`;
-            
+
             // Open mailto link
             window.location.href = mailtoLink;
-            
+
             // Show success message
             showMessage(messageDiv, 'success',
                 'Opening your email client... Please send the email to complete your reservation.',
                 'E-Mail-Client wird geöffnet... Bitte senden Sie die E-Mail, um Ihre Reservierung abzuschließen.'
             );
-            
+
             // Reset form after a delay
             setTimeout(() => {
                 form.reset();
             }, 2000);
-            
+
             resetSubmitButton(submitBtn);
             return;
         }
-        
+
         // Check if EmailJS is loaded
         if (typeof emailjs === 'undefined') {
             showMessage(messageDiv, 'error',
@@ -186,30 +261,57 @@ async function handleFormSubmit(e) {
             resetSubmitButton(submitBtn);
             return;
         }
-        
+
         // Send email using EmailJS
         await emailjs.send(
             EMAILJS_CONFIG.SERVICE_ID,
             EMAILJS_CONFIG.TEMPLATE_ID,
             templateParams
         );
-        
-        // Success
-        showMessage(messageDiv, 'success', 
-            'Reservation request sent successfully! We will contact you soon to confirm.',
-            'Reservierungsanfrage erfolgreich gesendet! Wir werden Sie bald kontaktieren, um zu bestätigen.'
-        );
-        
+
+        // Show success block with animation
+        const successBlock = document.getElementById('reservation-success');
+        if (successBlock) {
+            form.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            form.style.opacity = '0';
+            form.style.transform = 'translateY(-10px)';
+
+            setTimeout(() => {
+                form.style.display = 'none';
+
+                // Translate the success block based on current language
+                const lang = localStorage.getItem('fridaDiegoLang') || 'en';
+                updateElementTranslations(successBlock, lang);
+
+                successBlock.style.display = 'block';
+                successBlock.style.opacity = '0';
+                successBlock.style.transform = 'translateY(20px)';
+
+                // Force reflow
+                void successBlock.offsetWidth;
+
+                successBlock.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                successBlock.style.opacity = '1';
+                successBlock.style.transform = 'translateY(0)';
+            }, 300);
+        } else {
+            // Fallback if success block is missing
+            showMessage(messageDiv, 'success',
+                'Reservation request sent successfully! We will contact you soon to confirm.',
+                'Reservierungsanfrage erfolgreich gesendet! Wir werden Sie bald kontaktieren, um zu bestätigen.'
+            );
+        }
+
         // Reset form
         form.reset();
-        
+
     } catch (error) {
         console.error('EmailJS Error:', error);
-        
+
         // Provide more specific error messages
         let errorMessageEn = 'Sorry, there was an error sending your reservation. Please contact us directly at fridaunddiego.berlin@gmail.com or call us.';
         let errorMessageDe = 'Entschuldigung, beim Senden Ihrer Reservierung ist ein Fehler aufgetreten. Bitte kontaktieren Sie uns direkt unter fridaunddiego.berlin@gmail.com oder rufen Sie uns an.';
-        
+
         if (error.text) {
             // EmailJS specific error
             if (error.text.includes('Invalid') || error.text.includes('not found')) {
@@ -217,7 +319,7 @@ async function handleFormSubmit(e) {
                 errorMessageDe = 'E-Mail-Service-Konfigurationsfehler. Bitte kontaktieren Sie uns direkt unter fridaunddiego.berlin@gmail.com';
             }
         }
-        
+
         showMessage(messageDiv, 'error', errorMessageEn, errorMessageDe);
     } finally {
         resetSubmitButton(submitBtn);
@@ -228,13 +330,13 @@ async function handleFormSubmit(e) {
  * Validate form data
  */
 function validateForm(data) {
-    return data.name && 
-           data.email && 
-           data.phone && 
-           data.guests && 
-           data.date && 
-           data.time &&
-           isValidEmail(data.email);
+    return data.name &&
+        data.email &&
+        data.phone &&
+        data.guests &&
+        data.date &&
+        data.time &&
+        isValidEmail(data.email);
 }
 
 /**
@@ -250,11 +352,11 @@ function isValidEmail(email) {
  */
 function formatDate(dateString) {
     const date = new Date(dateString);
-    const options = { 
-        weekday: 'long', 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
     };
     return date.toLocaleDateString('en-US', options);
 }
@@ -268,7 +370,7 @@ function showMessage(messageDiv, type, enText, deText) {
     messageDiv.textContent = currentLang === 'de' ? deText : enText;
     messageDiv.setAttribute('data-en', enText);
     messageDiv.setAttribute('data-de', deText);
-    
+
     // Update message when language changes
     const langToggle = document.getElementById('lang-toggle');
     if (langToggle) {
@@ -278,7 +380,7 @@ function showMessage(messageDiv, type, enText, deText) {
         };
         langToggle.addEventListener('click', updateMessage);
     }
-    
+
     // Scroll to message
     messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
@@ -302,11 +404,11 @@ function resetSubmitButton(btn) {
 function initDatePicker() {
     const dateInput = document.getElementById('date');
     if (!dateInput) return;
-    
+
     const today = new Date();
     const tomorrow = new Date(today);
     tomorrow.setDate(tomorrow.getDate() + 1);
-    
+
     // Set minimum date to tomorrow (or today if you allow same-day reservations)
     dateInput.setAttribute('min', today.toISOString().split('T')[0]);
 }
@@ -317,17 +419,17 @@ function initDatePicker() {
 function initPlaceholderLanguage() {
     const textarea = document.querySelector('#special-requests');
     if (!textarea) return;
-    
+
     const updatePlaceholder = () => {
         const currentLang = localStorage.getItem('fridaDiegoLang') || 'en';
-        const placeholder = currentLang === 'de' 
+        const placeholder = currentLang === 'de'
             ? textarea.getAttribute('data-de-placeholder')
             : textarea.getAttribute('data-en-placeholder');
         textarea.placeholder = placeholder || '';
     };
-    
+
     updatePlaceholder();
-    
+
     // Update placeholder when language changes
     const langToggle = document.getElementById('lang-toggle');
     if (langToggle) {
