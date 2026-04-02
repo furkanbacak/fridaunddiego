@@ -179,6 +179,9 @@ function initScrollReveal() {
  * Smooth scroll for anchor links
  */
 function initSmoothScroll() {
+    const navbar = document.getElementById('navbar');
+    if (!navbar) return;
+
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
     
     anchorLinks.forEach(link => {
@@ -190,7 +193,7 @@ function initSmoothScroll() {
             const target = document.querySelector(href);
             
             if (target) {
-                const navbarHeight = document.getElementById('navbar').offsetHeight;
+                const navbarHeight = navbar.offsetHeight;
                 const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
                 
                 window.scrollTo({
@@ -198,7 +201,6 @@ function initSmoothScroll() {
                     behavior: 'smooth'
                 });
 
-                // Update URL without scrolling
                 history.pushState(null, null, href);
             }
         });

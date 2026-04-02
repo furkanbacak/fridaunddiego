@@ -166,6 +166,111 @@
     color: var(--gold);
 }
 
+/* Quick Access Navigation */
+.quick-nav {
+    position: sticky;
+    top: 107px;
+    z-index: 98;
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0.6rem 1rem;
+    margin: 0 -1rem 0.75rem;
+    background: rgba(8, 25, 20, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.quick-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.quick-nav-btn {
+    flex-shrink: 0;
+    padding: 0.4rem 0.85rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 100px;
+    color: rgba(250, 243, 224, 0.7);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.quick-nav-btn:hover,
+.quick-nav-btn:active {
+    background: rgba(201, 162, 39, 0.15);
+    border-color: rgba(201, 162, 39, 0.4);
+    color: var(--gold);
+}
+
+.quick-nav-btn.active {
+    background: rgba(201, 162, 39, 0.2);
+    border-color: var(--gold);
+    color: var(--gold);
+    font-weight: 600;
+}
+
+/* Item Size Helper */
+.item-size {
+    font-size: 0.78rem;
+    color: rgba(250, 243, 224, 0.45);
+    font-weight: 400;
+}
+
+.open-glass {
+    color: rgba(201, 162, 39, 0.7);
+    font-style: italic;
+}
+
+.bottle-label {
+    color: rgba(250, 243, 224, 0.35);
+    font-style: italic;
+}
+
+/* Item Tags (Vegan, AF) */
+.item-tag {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 100px;
+    white-space: nowrap;
+}
+
+.vegan-tag {
+    background: rgba(74, 160, 74, 0.15);
+    border: 1px solid rgba(74, 160, 74, 0.4);
+    color: #7dcf7d;
+}
+
+.af-tag {
+    background: rgba(100, 160, 220, 0.12);
+    border: 1px solid rgba(100, 160, 220, 0.3);
+    color: rgba(160, 200, 240, 0.9);
+}
+
+.af-inline {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.1rem 0.35rem;
+    border-radius: 100px;
+    background: rgba(100, 160, 220, 0.12);
+    border: 1px solid rgba(100, 160, 220, 0.3);
+    color: rgba(160, 200, 240, 0.9);
+    margin-right: 0.2rem;
+    vertical-align: middle;
+}
+
 /* Menu Category Cards */
 .menu-category-card {
     background: rgba(255, 255, 255, 0.03);
@@ -489,6 +594,79 @@
     padding: 0.3rem 0;
 }
 
+/* Expandable Upgrade Options */
+.item-upgrades {
+    flex: 100%;
+    margin-top: 0.25rem;
+}
+
+.item-upgrades summary {
+    font-size: 0.78rem;
+    color: var(--gold);
+    cursor: pointer;
+    padding: 0.35rem 0.6rem;
+    background: rgba(201, 162, 39, 0.08);
+    border: 1px solid rgba(201, 162, 39, 0.2);
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: all 0.2s ease;
+    list-style: none;
+    user-select: none;
+}
+
+.item-upgrades summary::-webkit-details-marker {
+    display: none;
+}
+
+.item-upgrades summary::before {
+    content: '+';
+    font-weight: 700;
+    font-size: 0.85rem;
+    transition: transform 0.2s ease;
+}
+
+.item-upgrades[open] summary::before {
+    content: '−';
+}
+
+.item-upgrades summary:hover {
+    background: rgba(201, 162, 39, 0.15);
+    border-color: rgba(201, 162, 39, 0.4);
+}
+
+.upgrade-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: rgba(201, 162, 39, 0.04);
+    border-left: 2px solid rgba(201, 162, 39, 0.3);
+    border-radius: 0 8px 8px 0;
+    animation: fadeIn 0.2s ease;
+}
+
+.upgrade-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+    padding: 0.2rem 0;
+}
+
+.upgrade-label {
+    color: rgba(250, 243, 224, 0.8);
+}
+
+.upgrade-price {
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
 /* Allergens Section */
 .menu-allergens {
     max-width: 600px;
@@ -671,6 +849,13 @@
     
     .menu-category-card {
         padding: 1.5rem;
+    }
+    
+    .quick-nav {
+        margin-left: -1.5rem;
+        margin-right: -1.5rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
     
     .classics-grid {
