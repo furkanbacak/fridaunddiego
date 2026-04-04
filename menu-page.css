@@ -8,6 +8,11 @@
     background: var(--soft-black);
     min-height: 100vh;
     padding-bottom: env(safe-area-inset-bottom);
+    /* Sticky stack below header — must match .menu-header height (incl. safe area) */
+    --menu-sticky-tabs-top: calc(env(safe-area-inset-top, 0px) + 1.5rem + 40px);
+    /* Tab row: padding + icon + gap + label + bottom border */
+    --menu-tabbar-height: calc(0.75rem + 1.25rem + 0.25rem + 0.85rem + 0.75rem + 2px);
+    --menu-sticky-quicknav-top: calc(var(--menu-sticky-tabs-top) + var(--menu-tabbar-height));
 }
 
 /* Header */
@@ -17,8 +22,9 @@
     z-index: 100;
     background: rgba(8, 25, 20, 0.95);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 0.75rem 1rem;
+    padding: calc(0.75rem + env(safe-area-inset-top, 0px)) 1rem 0.75rem;
 }
 
 .menu-header-content {
@@ -52,6 +58,8 @@
     display: flex;
     align-items: center;
     gap: 0.2rem;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .lang-toggle-mini .lang-active {
@@ -70,15 +78,18 @@
 /* Tab Navigation */
 .menu-tabs {
     position: sticky;
-    top: 57px;
+    top: var(--menu-sticky-tabs-top);
     z-index: 99;
     display: flex;
     background: var(--charcoal);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     padding: 0;
-    overflow-x: auto;
+    /* Two tabs: avoid horizontal scroll stealing taps on iOS */
+    overflow-x: visible;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    isolation: isolate;
 }
 
 .menu-tabs::-webkit-scrollbar {
@@ -86,11 +97,13 @@
 }
 
 .menu-tab {
-    flex: 1;
-    min-width: 100px;
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 48px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 0.25rem;
     padding: 0.75rem 0.5rem;
     background: none;
@@ -99,8 +112,12 @@
     font-family: var(--font-body);
     font-size: 0.75rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
     border-bottom: 2px solid transparent;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    position: relative;
+    z-index: 1;
 }
 
 .menu-tab:hover {
@@ -169,22 +186,36 @@
 /* Quick Access Navigation */
 .quick-nav {
     position: sticky;
-    top: 107px;
+    top: var(--menu-sticky-quicknav-top);
     z-index: 98;
     display: flex;
     gap: 0.5rem;
     overflow-x: auto;
+    overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
     scrollbar-width: none;
-    padding: 0.6rem 1rem;
+    scroll-padding-inline: 1rem;
+    padding: 0.65rem max(1rem, env(safe-area-inset-left, 0px)) 0.65rem max(1rem, env(safe-area-inset-right, 0px));
     margin: 0 -1rem 0.75rem;
-    background: rgba(8, 25, 20, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(8, 25, 20, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    isolation: isolate;
 }
 
 .quick-nav::-webkit-scrollbar {
     display: none;
+}
+
+@media (max-width: 1099px) {
+    .quick-nav {
+        background: var(--soft-black);
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
 }
 
 .quick-nav-btn {
@@ -930,6 +961,8 @@
         background:
             radial-gradient(ellipse 80% 50% at 50% 0%, rgba(12, 45, 35, 0.5) 0%, transparent 55%),
             var(--soft-black);
+        --menu-sticky-tabs-top: calc(env(safe-area-inset-top, 0px) + 2rem + 48px);
+        --menu-tabbar-height: calc(2rem + 1.4rem + 0.25rem + 1em + 2px);
     }
 
     .menu-content {
@@ -938,7 +971,7 @@
     }
 
     .menu-header {
-        padding: 1rem 2rem;
+        padding: calc(1rem + env(safe-area-inset-top, 0px)) 2rem 1rem;
     }
 
     .menu-header-content {
@@ -953,7 +986,6 @@
         justify-content: center;
         padding: 0 2rem;
         gap: 0.5rem;
-        top: 65px;
     }
 
     .menu-tab {
@@ -968,11 +1000,10 @@
     }
 
     .quick-nav {
-        top: 121px;
         flex-wrap: wrap;
         justify-content: center;
         row-gap: 0.5rem;
-        padding: 0.75rem 2rem;
+        padding: 0.75rem max(2rem, env(safe-area-inset-left, 0px)) 0.75rem max(2rem, env(safe-area-inset-right, 0px));
         margin-left: -2.5rem;
         margin-right: -2.5rem;
         margin-bottom: 1rem;
@@ -990,9 +1021,10 @@
         padding-right: 2.5rem;
     }
 
-    /* Two-column category cards — food & cocktails */
-    #food-section,
-    #cocktails-section {
+    /* Two-column category cards — food & cocktails (only when tab is active; ID+grid
+       must not override .menu-section display:none or inactive tabs stay visible) */
+    .menu-section#food-section.active,
+    .menu-section#cocktails-section.active {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         column-gap: 1.5rem;
@@ -1000,13 +1032,13 @@
         align-content: start;
     }
 
-    #food-section > .menu-section-header,
-    #food-section > .quick-nav,
-    #food-section > .menu-note,
-    #food-section > .drinks-section-divider,
-    #food-section > .download-btn,
-    #cocktails-section > .menu-section-header,
-    #cocktails-section > .download-btn {
+    .menu-section#food-section.active > .menu-section-header,
+    .menu-section#food-section.active > .quick-nav,
+    .menu-section#food-section.active > .menu-note,
+    .menu-section#food-section.active > .drinks-section-divider,
+    .menu-section#food-section.active > .download-btn,
+    .menu-section#cocktails-section.active > .menu-section-header,
+    .menu-section#cocktails-section.active > .download-btn {
         grid-column: 1 / -1;
     }
 
@@ -1016,8 +1048,8 @@
         border-radius: 18px;
     }
 
-    #food-section .download-btn,
-    #cocktails-section .download-btn {
+    .menu-section#food-section.active .download-btn,
+    .menu-section#cocktails-section.active .download-btn {
         max-width: 520px;
         margin-left: auto;
         margin-right: auto;
@@ -1047,8 +1079,8 @@
         max-width: 1240px;
     }
 
-    #food-section,
-    #cocktails-section {
+    .menu-section#food-section.active,
+    .menu-section#cocktails-section.active {
         column-gap: 2rem;
     }
 

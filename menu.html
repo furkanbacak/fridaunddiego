@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="menu-page.css">
+    <link rel="stylesheet" href="menu-page.css?v=3">
 </head>
 <body class="menu-page-body">
     <!-- Compact Header -->
@@ -1256,21 +1256,24 @@
     <script>
         // Scroll to top on page load
         window.scrollTo(0, 0);
-        
+
+        let lastQuickNavSectionId = null;
+        let scheduleQuickNavSync = function () {};
+
         // Tab switching
         document.querySelectorAll('.menu-tab').forEach(tab => {
             tab.addEventListener('click', () => {
-                // Remove active from all tabs
                 document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
                 document.querySelectorAll('.menu-section').forEach(s => s.classList.remove('active'));
-                
-                // Add active to clicked tab
+
                 tab.classList.add('active');
                 const sectionId = tab.dataset.tab + '-section';
-                document.getElementById(sectionId).classList.add('active');
-                
-                // Scroll to top of page smoothly
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) targetSection.classList.add('active');
+
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+                lastQuickNavSectionId = null;
+                requestAnimationFrame(() => scheduleQuickNavSync());
             });
         });
 
@@ -1295,12 +1298,46 @@
                    (nav ? nav.offsetHeight : 0) + 8;
         }
 
-        function scrollNavBtn(btn) {
-            const navRect = quickNav.getBoundingClientRect();
-            const btnRect = btn.getBoundingClientRect();
-            const offset = btnRect.left - navRect.left - (navRect.width / 2) + (btnRect.width / 2);
-            quickNav.scrollBy({ left: offset, behavior: 'smooth' });
+        const foodSection = document.getElementById('food-section');
+
+        function scrollNavBtn(btn, smooth) {
+            if (!quickNav || !btn) return;
+            /* "nearest" avoids centering the chip (which pulled the strip left and clipped "Starters") */
+            btn.scrollIntoView({ inline: 'nearest', block: 'nearest', behavior: smooth ? 'smooth' : 'auto' });
         }
+
+        const sections = document.querySelectorAll('[id^="sec-"]');
+        let quickNavScrollRaf = null;
+
+        function syncQuickNavHighlight() {
+            if (!foodSection || !foodSection.classList.contains('active') || !quickNav) return;
+            const offset = getStickyOffset();
+            let currentId = null;
+            sections.forEach((sec) => {
+                if (sec.getBoundingClientRect().top <= offset + 48) {
+                    currentId = sec.id;
+                }
+            });
+            if (!currentId && sections.length) currentId = sections[0].id;
+            if (currentId === lastQuickNavSectionId) return;
+            lastQuickNavSectionId = currentId;
+            quickNavBtns.forEach((btn) => {
+                btn.classList.toggle('active', btn.getAttribute('href') === '#' + currentId);
+            });
+            const activeBtn = document.querySelector('.quick-nav-btn.active');
+            if (activeBtn) scrollNavBtn(activeBtn, false);
+        }
+
+        scheduleQuickNavSync = function () {
+            if (quickNavScrollRaf != null) return;
+            quickNavScrollRaf = requestAnimationFrame(() => {
+                quickNavScrollRaf = null;
+                syncQuickNavHighlight();
+            });
+        };
+
+        window.addEventListener('scroll', scheduleQuickNavSync, { passive: true });
+        window.addEventListener('resize', scheduleQuickNavSync);
 
         quickNavBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -1312,35 +1349,13 @@
                     window.scrollTo({ top: y, behavior: 'smooth' });
                     quickNavBtns.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
-                    scrollNavBtn(btn);
+                    lastQuickNavSectionId = targetId;
+                    scrollNavBtn(btn, true);
                 }
             });
         });
 
-        // Highlight active button on scroll
-        let scrollingFromClick = false;
-        const sections = document.querySelectorAll('[id^="sec-"]');
-
-        const observer = new IntersectionObserver((entries) => {
-            let topEntry = null;
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    if (!topEntry || entry.boundingClientRect.top < topEntry.boundingClientRect.top) {
-                        topEntry = entry;
-                    }
-                }
-            });
-            if (topEntry) {
-                const id = topEntry.target.id;
-                quickNavBtns.forEach(btn => {
-                    btn.classList.toggle('active', btn.getAttribute('href') === '#' + id);
-                });
-                const activeBtn = document.querySelector('.quick-nav-btn.active');
-                if (activeBtn) scrollNavBtn(activeBtn);
-            }
-        }, { rootMargin: '-160px 0px -65% 0px', threshold: 0 });
-
-        sections.forEach(sec => observer.observe(sec));
+        scheduleQuickNavSync();
     </script>
 </body>
 </html>
