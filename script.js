@@ -118,8 +118,13 @@ function initLanguageToggle() {
             }
         });
 
-        // Update page title based on language
-        if (lang === 'de') {
+        // Update page title based on language (subpages keep their own titles)
+        const path = window.location.pathname || '';
+        if (path.includes('reservation.html')) {
+            document.title = lang === 'de' ? 'Reservierung | Frida & Diego' : 'Reservation | Frida & Diego';
+        } else if (path.includes('workshops.html')) {
+            document.title = lang === 'de' ? 'Cocktail-Workshop | Frida & Diego' : 'Cocktail Workshop | Frida & Diego';
+        } else if (lang === 'de') {
             document.title = 'Frida & Diego | Mexikanisches Restaurant & Cocktailbar Berlin';
         } else {
             document.title = 'Frida & Diego | Mexican Restaurant & Cocktail Bar Berlin';

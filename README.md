@@ -17,6 +17,7 @@ The website design is inspired by the legendary Mexican artistic couple **Frida 
 - **Bilingual Support**: Full English/German language toggle with localStorage persistence
 - **Responsive Navigation**: Mobile-friendly hamburger menu
 - **Reservation System**: Online reservation form with email notifications
+- **Cocktail Workshops**: Private group workshop inquiry form (`workshops.html`) with separate EmailJS template
 - **Separate Menu Page**: Mobile-optimized menu page perfect for QR code scanning at tables
 - **Sections**:
   - Hero with logo and call-to-action
@@ -46,10 +47,12 @@ frida-diego-website/
 ├── index.html              # Main website
 ├── menu.html               # Separate menu page (QR code optimized)
 ├── reservation.html        # Reservation page with form
+├── workshops.html          # Cocktail workshop inquiries (groups, EmailJS)
 ├── styles.css              # Main website styles
 ├── menu-page.css           # Menu page styles
 ├── script.js               # Language toggle and interactivity
 ├── reservation.js          # Reservation form handler (EmailJS)
+├── workshop.js             # Workshop form handler (separate EmailJS template)
 ├── frida-diego-logo.png    # Restaurant logo (transparent)
 ├── frida-diego-logo.jpeg   # Restaurant logo (original)
 ├── Frida-Diego-Food-Menu.pdf    # Food menu PDF
@@ -133,6 +136,27 @@ The reservation form uses EmailJS to send emails. Follow these steps to set it u
    - Check your email inbox for the reservation notification
 
 That's it! The reservation form will now send emails to `fridaunddiego.berlin@gmail.com` whenever someone makes a reservation.
+
+## 📧 EmailJS Setup (Workshop Form)
+
+Use a **second template** so workshop requests are easy to filter (separate from table reservations).
+
+1. In EmailJS, create a new template, e.g. **Workshop Request**.
+2. Subject example: `Workshop request — {{workshop_date}}`
+3. Body example:
+   ```
+   {{message}}
+   ```
+   Or line by line: `{{from_name}}`, `{{from_email}}`, `{{phone}}`, `{{participants}}`, `{{workshop_date}}`, `{{start_time}}`, `{{notes}}`.
+4. Open `workshop.js` and set:
+   ```javascript
+   const WORKSHOP_EMAILJS = {
+       PUBLIC_KEY: '…same as reservation…',
+       SERVICE_ID: '…same as reservation…',
+       TEMPLATE_ID: 'your-new-workshop-template-id'
+   };
+   ```
+5. The workshop form sends through EmailJS only (same flow as the reservation page — success screen after send).
 
 ## 📱 Creating QR Codes
 

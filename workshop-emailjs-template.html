@@ -1,0 +1,39 @@
+<!--
+  Paste this into EmailJS → Email Templates → Content (HTML).
+  Subject line example: Workshop request — {{workshop_date}}
+
+  Variables sent from workshop.js:
+  {{from_name}} {{from_email}} {{phone}} {{participants}}
+  {{workshop_date}} {{start_time}} {{notes}} {{message}}
+-->
+<div style="font-family: system-ui, -apple-system, 'Segoe UI', sans-serif, Arial; font-size: 14px; color: #2c3e50; line-height: 1.5;">
+  <div style="margin-bottom: 16px;">
+    A <strong>cocktail workshop</strong> request from <strong>{{from_name}}</strong> has been received. Please respond at your earliest convenience.
+  </div>
+
+  <div style="margin-top: 20px; padding: 16px 0; border-top: 1px dashed #ccc; border-bottom: 1px dashed #ccc;">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width: 100%; border-collapse: collapse;">
+      <tr>
+        <td style="vertical-align: top; width: 48px;">
+          <div style="padding: 8px 10px; background-color: #e8f4fc; border-radius: 8px; font-size: 22px; text-align: center;" aria-hidden="true">🍹</div>
+        </td>
+        <td style="vertical-align: top; padding-left: 14px;">
+          <div style="color: #2c3e50; font-size: 17px; font-weight: 700; margin-bottom: 4px;">{{from_name}}</div>
+          <div style="color: #7f8c8d; font-size: 13px; margin-bottom: 12px;">
+            {{workshop_date}} · starts {{start_time}}
+          </div>
+
+          <table role="presentation" cellpadding="0" cellspacing="0" style="font-size: 14px; margin-bottom: 12px;">
+            <tr><td style="padding: 4px 12px 4px 0; color: #95a5a6; white-space: nowrap;">Email</td><td style="padding: 4px 0;"><a href="mailto:{{from_email}}" style="color: #2980b9;">{{from_email}}</a></td></tr>
+            <tr><td style="padding: 4px 12px 4px 0; color: #95a5a6;">Phone</td><td style="padding: 4px 0;"><a href="tel:{{phone}}" style="color: #2980b9;">{{phone}}</a></td></tr>
+            <tr><td style="padding: 4px 12px 4px 0; color: #95a5a6;">Participants</td><td style="padding: 4px 0;">{{participants}}</td></tr>
+            <tr><td style="padding: 4px 12px 4px 0; color: #95a5a6; vertical-align: top;">Notes</td><td style="padding: 4px 0;">{{notes}}</td></tr>
+          </table>
+
+          <div style="font-size: 12px; color: #95a5a6; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;">Full summary</div>
+          <div style="font-size: 13px; color: #34495e; white-space: pre-wrap; background: #f8f9fa; padding: 12px 14px; border-radius: 8px; border: 1px solid #ecf0f1;">{{message}}</div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

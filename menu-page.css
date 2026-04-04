@@ -881,3 +881,183 @@
     }
 }
 
+/* ============================================
+   Desktop / wide screens — keep mobile-first intact above
+   ============================================ */
+
+@media (min-width: 900px) {
+    .menu-content {
+        max-width: 820px;
+        padding: 1.5rem 2rem;
+    }
+
+    .menu-header-content {
+        max-width: 820px;
+    }
+
+    .menu-allergens,
+    .menu-footer {
+        max-width: 820px;
+    }
+
+    .menu-section-header h1 {
+        font-size: 2.25rem;
+    }
+
+    .menu-section-header p {
+        font-size: 1rem;
+    }
+
+    .category-title h2 {
+        font-size: 1.35rem;
+    }
+
+    .item-name {
+        font-size: 1rem;
+    }
+
+    .item-price {
+        font-size: 0.95rem;
+    }
+
+    .item-desc {
+        font-size: 0.85rem;
+    }
+}
+
+@media (min-width: 1100px) {
+    .menu-page-body {
+        background:
+            radial-gradient(ellipse 80% 50% at 50% 0%, rgba(12, 45, 35, 0.5) 0%, transparent 55%),
+            var(--soft-black);
+    }
+
+    .menu-content {
+        max-width: 1120px;
+        padding: 1.75rem 2.5rem;
+    }
+
+    .menu-header {
+        padding: 1rem 2rem;
+    }
+
+    .menu-header-content {
+        max-width: 1120px;
+    }
+
+    .menu-logo {
+        height: 48px;
+    }
+
+    .menu-tabs {
+        justify-content: center;
+        padding: 0 2rem;
+        gap: 0.5rem;
+        top: 65px;
+    }
+
+    .menu-tab {
+        flex: 0 1 220px;
+        max-width: 320px;
+        padding: 1rem 1.25rem;
+        font-size: 0.8rem;
+    }
+
+    .tab-icon {
+        font-size: 1.4rem;
+    }
+
+    .quick-nav {
+        top: 121px;
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 0.5rem;
+        padding: 0.75rem 2rem;
+        margin-left: -2.5rem;
+        margin-right: -2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .quick-nav-btn {
+        font-size: 0.8rem;
+        padding: 0.45rem 1rem;
+    }
+
+    .menu-allergens,
+    .menu-footer {
+        max-width: 1120px;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+
+    /* Two-column category cards — food & cocktails */
+    #food-section,
+    #cocktails-section {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 1.5rem;
+        row-gap: 0;
+        align-content: start;
+    }
+
+    #food-section > .menu-section-header,
+    #food-section > .quick-nav,
+    #food-section > .menu-note,
+    #food-section > .drinks-section-divider,
+    #food-section > .download-btn,
+    #cocktails-section > .menu-section-header,
+    #cocktails-section > .download-btn {
+        grid-column: 1 / -1;
+    }
+
+    .menu-category-card {
+        margin-bottom: 1.25rem;
+        padding: 1.5rem 1.75rem;
+        border-radius: 18px;
+    }
+
+    #food-section .download-btn,
+    #cocktails-section .download-btn {
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .classics-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .allergens-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.25rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    .menu-content {
+        max-width: 1240px;
+    }
+
+    .menu-header-content {
+        max-width: 1240px;
+    }
+
+    .menu-allergens,
+    .menu-footer {
+        max-width: 1240px;
+    }
+
+    #food-section,
+    #cocktails-section {
+        column-gap: 2rem;
+    }
+
+    .menu-category-card {
+        padding: 1.75rem 2rem;
+    }
+
+    .classics-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+

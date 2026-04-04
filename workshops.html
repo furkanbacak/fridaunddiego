@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cocktail Workshop | Frida & Diego</title>
+    <meta name="description"
+        content="Private cocktail workshops at Frida & Diego Berlin — learn three signature drinks with our bartender before opening hours.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="frida-diego-logo.png" alt="Frida & Diego" class="nav-logo-img">
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html#about" class="nav-link" data-en="About" data-de="Über uns">About</a></li>
+                <li><a href="menu.html" class="nav-link" data-en="Menu" data-de="Speisekarte">Menu</a></li>
+                <li><a href="index.html#drinks" class="nav-link" data-en="Drinks" data-de="Getränke">Drinks</a></li>
+                <li><a href="index.html#contact" class="nav-link" data-en="Contact" data-de="Kontakt">Contact</a></li>
+                <li><a href="reservation.html" class="nav-link" data-en="Reservation" data-de="Reservierung">Reservation</a></li>
+                <li><a href="workshops.html" class="nav-link nav-link-active" data-en="Workshops" data-de="Workshops">Workshops</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="lang-toggle" id="lang-toggle">
+                    <span class="lang-active">EN</span>
+                    <span class="lang-divider">/</span>
+                    <span class="lang-inactive">DE</span>
+                </button>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="reservation-section">
+        <div class="reservation-bg"></div>
+        <div class="container">
+            <div class="section-header section-header-light">
+                <span class="section-tag" data-en="Cocktail Workshop" data-de="Cocktail-Workshop">Cocktail Workshop</span>
+                <h2 class="section-title" data-en="Mix & Sip with Our Bartender" data-de="Mixen & genießen mit unserem Barkeeper">Mix & Sip with Our Bartender</h2>
+                <p class="section-desc"
+                    data-en="A private session in our bar: our owner or head bartender shows your group how to mix three Frida & Diego signature cocktails — you shake, stir, and enjoy every drink you make."
+                    data-de="Eine private Session in unserer Bar: Unser Inhaber oder Chef-Barkeeper zeigt Ihrer Gruppe, wie man drei Signature-Cocktails von Frida & Diego mixt — Sie shaken, rühren und genießen jeden Drink selbst.">
+                    A private session in our bar: our owner or head bartender shows your group how to mix three Frida & Diego signature cocktails — you shake, stir, and enjoy every drink you make.
+                </p>
+            </div>
+
+            <div class="workshop-summary">
+                <h3 data-en="What’s included" data-de="Das ist dabei">What’s included</h3>
+                <ul>
+                    <li data-en="<strong>€70 per person</strong> — three cocktails included (you mix and drink them here)."
+                        data-de="<strong>70 € pro Person</strong> — drei Cocktails inklusive (ihr mixt und verkostet bei uns).">
+                        <strong>€70 per person</strong> — three cocktails included (you mix and drink them here).
+                    </li>
+                    <li data-en="About <strong>2 hours</strong> with our bartender, Mon–Sat."
+                        data-de="Etwa <strong>2 Stunden</strong> mit unserem Barkeeper, Montag bis Samstag.">
+                        About <strong>2 hours</strong> with our bartender, Mon–Sat.
+                    </li>
+                    <li data-en="Private group only — <strong>minimum 10</strong> guests (larger groups on request)."
+                        data-de="Nur als private Gruppe — <strong>mindestens 10</strong> Personen (größere Gruppen auf Anfrage).">
+                        Private group only — <strong>minimum 10</strong> guests (larger groups on request).
+                    </li>
+                    <li data-en="Preferred start between <strong>11:00 and 14:00</strong> — pick a slot when you send the form."
+                        data-de="Gewünschter Start zwischen <strong>11:00 und 14:00 Uhr</strong> — wählen Sie einen Slot im Formular.">
+                        Preferred start between <strong>11:00 and 14:00</strong> — pick a slot when you send the form.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="reservation-form-wrapper">
+                <form id="workshop-form" class="reservation-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name" data-en="Full Name" data-de="Vollständiger Name">Full Name *</label>
+                            <input type="text" id="name" name="name" required autocomplete="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-en="Email Address" data-de="E-Mail-Adresse">Email Address *</label>
+                            <input type="email" id="email" name="email" required autocomplete="email">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone" data-en="Phone Number" data-de="Telefonnummer">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required autocomplete="tel">
+                        </div>
+                        <div class="form-group">
+                            <label for="participants" data-en="Number of participants" data-de="Anzahl Teilnehmende">Number of participants *</label>
+                            <input type="number" id="participants" name="participants" min="10" max="30" required
+                                placeholder="10–30">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="workshop-date" data-en="Preferred date" data-de="Wunschdatum">Preferred date *</label>
+                            <select id="workshop-date" name="workshop-date" required>
+                                <option value="">—</option>
+                            </select>
+                            <small style="display:block;margin-top:0.5rem;font-size:0.8rem;color:rgba(250,243,224,0.5);"
+                                data-en="Sundays excluded. First available day is at least 5 days from today."
+                                data-de="Sonntage ausgeschlossen. Erster möglicher Tag ist frühestens 5 Tage ab heute.">
+                                Sundays excluded. First available day is at least 5 days from today.
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="workshop-time" data-en="Preferred start time" data-de="Wunsch-Uhrzeit">Preferred start time *</label>
+                            <select id="workshop-time" name="workshop-time" required>
+                                <option value="">--</option>
+                                <option value="11:00">11:00</option>
+                                <option value="12:00">12:00</option>
+                                <option value="13:00">13:00</option>
+                                <option value="14:00">14:00</option>
+                            </select>
+                            <small style="display:block;margin-top:0.5rem;font-size:0.8rem;color:rgba(250,243,224,0.5);"
+                                data-en="Restaurant opens at 17:00; workshop is designed to finish before guests arrive."
+                                data-de="Restaurant öffnet um 17:00; der Workshop endet vor Gäste-Ankunft.">
+                                Restaurant opens at 17:00; workshop is designed to finish before guests arrive.
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes" data-en="Company / occasion / questions" data-de="Firma / Anlass / Fragen">Company / occasion / questions</label>
+                        <textarea id="notes" name="notes" rows="4"
+                            data-en-placeholder="Team event, birthday, dietary notes…"
+                            data-de-placeholder="Team-Event, Geburtstag, Unverträglichkeiten…"></textarea>
+                    </div>
+
+                    <div class="form-submit-wrapper">
+                        <button type="submit" class="reservation-submit-btn">
+                            <span data-en="Submit request" data-de="Anfrage senden">Submit request</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div id="workshop-form-message" class="form-message" role="alert" aria-live="polite"></div>
+                </form>
+
+                <div id="workshop-success" class="reservation-success"
+                    style="display: none; text-align: center; padding: 4rem 2rem;">
+                    <div class="success-icon" style="margin-bottom: 1.5rem;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"
+                            style="width: 80px; height: 80px;">
+                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <polyline points="22 4 12 14.01 9 11.01" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <h3 data-en="We’ve got your request!" data-de="Wir haben Ihre Anfrage erhalten!"
+                        style="font-family: var(--font-display); font-size: 2.2rem; margin-bottom: 1rem; color: var(--cream);">
+                        We’ve got your request!</h3>
+                    <p data-en="Thank you. We will call you shortly to confirm the date, time, group size, and details. If you prefer, you can also reach us at +49 30 23299629."
+                        data-de="Vielen Dank. Wir rufen Sie in Kürze an, um Datum, Uhrzeit, Gruppengröße und Details zu bestätigen. Sie erreichen uns auch unter +49 30 23299629."
+                        style="color: rgba(250, 240, 230, 0.85); font-size: 1.1rem; max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.6;">
+                        Thank you. We will call you shortly to confirm the date, time, group size, and details. If you prefer, you can also reach us at +49 30 23299629.
+                    </p>
+                    <button id="workshop-another-btn" class="reservation-submit-btn" type="button"
+                        style="width: auto; padding: 1rem 2.5rem; margin: 0 auto;">
+                        <span data-en="Send another request" data-de="Weitere Anfrage senden">Send another request</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="reservation-info">
+                <div class="reservation-info-card">
+                    <div class="reservation-info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12,6 12,12 16,14" />
+                        </svg>
+                    </div>
+                    <h3 data-en="Duration" data-de="Dauer">Duration</h3>
+                    <p data-en="Plan for about 2 hours — three cocktails, techniques, and tasting."
+                        data-de="Rechnen Sie mit ca. 2 Stunden — drei Cocktails, Technik und Verkostung.">
+                        Plan for about 2 hours — three cocktails, techniques, and tasting.
+                    </p>
+                </div>
+                <div class="reservation-info-card">
+                    <div class="reservation-info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                    </div>
+                    <h3 data-en="Group size" data-de="Gruppengröße">Group size</h3>
+                    <p data-en="Minimum 10 participants. Larger groups on request."
+                        data-de="Mindestens 10 Teilnehmende. Größere Gruppen auf Anfrage.">
+                        Minimum 10 participants. Larger groups on request.
+                    </p>
+                </div>
+                <div class="reservation-info-card">
+                    <div class="reservation-info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                    </div>
+                    <h3 data-en="Contact" data-de="Kontakt">Contact</h3>
+                    <p>
+                        <a href="mailto:fridaunddiego.berlin@gmail.com"
+                            class="reservation-contact-link">fridaunddiego.berlin@gmail.com</a><br>
+                        <a href="tel:+493023299629" class="reservation-contact-link">+49 30 23299629</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">Frida & Diego</span>
+                    <p data-en="Mexican Restaurant & Cocktail Bar in the heart of Berlin Schöneberg"
+                        data-de="Mexikanisches Restaurant & Cocktailbar im Herzen von Berlin Schöneberg">Mexican
+                        Restaurant & Cocktail Bar in the heart of Berlin Schöneberg</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html#about" data-en="About" data-de="Über uns">About</a>
+                    <a href="menu.html" data-en="Menu" data-de="Speisekarte">Menu</a>
+                    <a href="index.html#drinks" data-en="Drinks" data-de="Getränke">Drinks</a>
+                    <a href="index.html#contact" data-en="Contact" data-de="Kontakt">Contact</a>
+                    <a href="reservation.html" data-en="Reservation" data-de="Reservierung">Reservation</a>
+                    <a href="workshops.html" data-en="Workshops" data-de="Workshops">Workshops</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://instagram.com/fridaunddiego" target="_blank" rel="noopener noreferrer"
+                        class="footer-social-link" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="2" width="20" height="20" rx="5" />
+                            <circle cx="12" cy="12" r="4" />
+                            <circle cx="18" cy="6" r="1.5" fill="currentColor" stroke="none" />
+                        </svg>
+                    </a>
+                    <a href="https://share.google/JZHSs9rwtgosXiVL3" target="_blank" rel="noopener noreferrer"
+                        class="footer-social-link" aria-label="Google Reviews">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Frida & Diego. <span data-en="All rights reserved." data-de="Alle Rechte vorbehalten.">All
+                        rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="workshop.js?v=2"></script>
+    <script>
+        (function workshopPlaceholders() {
+            const notes = document.getElementById('notes');
+            if (!notes) return;
+            const apply = () => {
+                const lang = localStorage.getItem('fridaDiegoLang') || 'en';
+                notes.placeholder = lang === 'de'
+                    ? (notes.getAttribute('data-de-placeholder') || '')
+                    : (notes.getAttribute('data-en-placeholder') || '');
+            };
+            apply();
+            document.getElementById('lang-toggle')?.addEventListener('click', () => setTimeout(apply, 100));
+        })();
+    </script>
+</body>
+
+</html>
