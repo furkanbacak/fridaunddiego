@@ -297,8 +297,8 @@ async function handleFormSubmit(e) {
         } else {
             // Fallback if success block is missing
             showMessage(messageDiv, 'success',
-                'Reservation request sent successfully! We will contact you soon to confirm.',
-                'Reservierungsanfrage erfolgreich gesendet! Wir werden Sie bald kontaktieren, um zu bestätigen.'
+                'Reservation confirmed! We look forward to welcoming you.',
+                'Reservierung bestätigt! Wir freuen uns auf Sie.'
             );
         }
 
