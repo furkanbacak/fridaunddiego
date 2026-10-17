@@ -9,7 +9,52 @@ document.addEventListener('DOMContentLoaded', () => {
     initLanguageToggle();
     initScrollReveal();
     initSmoothScroll();
+    initHalloweenPopup();
 });
+
+/**
+ * Seasonal Halloween cocktail popup (homepage and menu only)
+ */
+function initHalloweenPopup() {
+    const page = window.location.pathname.split('/').pop();
+    if (page && page !== 'index.html' && page !== 'menu.html') return;
+
+    const popup = document.createElement('div');
+    popup.className = 'halloween-popup';
+    popup.setAttribute('role', 'dialog');
+    popup.setAttribute('aria-modal', 'true');
+    popup.setAttribute('aria-label', 'Halloween special cocktails');
+    popup.innerHTML = `
+        <div class="halloween-popup__backdrop" data-popup-close></div>
+        <div class="halloween-popup__content">
+            <button class="halloween-popup__close" type="button" aria-label="Close Halloween special" data-popup-close>&times;</button>
+            <img src="halloween-special-cocktails.jpeg" alt="Halloween special cocktails: Beso del Diablo, Café de Bruja and La Calabaza, all 13 euros">
+        </div>
+    `;
+
+    const closePopup = () => {
+        popup.classList.remove('is-visible');
+        document.body.classList.remove('popup-open');
+        window.setTimeout(() => popup.remove(), 250);
+    };
+
+    popup.querySelectorAll('[data-popup-close]').forEach((element) => {
+        element.addEventListener('click', closePopup);
+    });
+    document.addEventListener('keydown', function handleEscape(event) {
+        if (event.key === 'Escape' && popup.isConnected) {
+            closePopup();
+            document.removeEventListener('keydown', handleEscape);
+        }
+    });
+
+    document.body.appendChild(popup);
+    document.body.classList.add('popup-open');
+    requestAnimationFrame(() => {
+        popup.classList.add('is-visible');
+        popup.querySelector('.halloween-popup__close').focus();
+    });
+}
 
 /**
  * Navigation functionality
@@ -235,4 +280,3 @@ function initSmoothScroll() {
         document.head.appendChild(style);
     }
 })();
-
