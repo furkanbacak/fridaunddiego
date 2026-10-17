@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 function initHalloweenPopup() {
     const page = window.location.pathname.split('/').pop();
-    if (page && page !== 'index.html' && page !== 'menu.html') return;
+    if (page && page !== 'index.html' && page !== 'menu' && page !== 'menu.html') return;
 
     const popup = document.createElement('div');
     popup.className = 'halloween-popup';
