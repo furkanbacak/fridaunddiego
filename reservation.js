@@ -105,7 +105,7 @@ function initSuccessBlock() {
     if (langToggle && successBlock) {
         langToggle.addEventListener('click', () => {
             setTimeout(() => {
-                const lang = localStorage.getItem('fridaDiegoLang') || 'en';
+                const lang = document.documentElement.lang || 'en';
                 // Only update if visible
                 if (successBlock.style.display === 'block') {
                     updateElementTranslations(successBlock, lang);
@@ -126,7 +126,7 @@ function initFormMessageLanguage() {
     if (langToggle) {
         langToggle.addEventListener('click', () => {
             setTimeout(() => {
-                const lang = localStorage.getItem('fridaDiegoLang') || 'en';
+                const lang = document.documentElement.lang || 'en';
                 const enText = messageDiv.getAttribute('data-en');
                 const deText = messageDiv.getAttribute('data-de');
                 if (enText && deText && messageDiv.textContent) {
@@ -280,7 +280,7 @@ async function handleFormSubmit(e) {
                 form.style.display = 'none';
 
                 // Translate the success block based on current language
-                const lang = localStorage.getItem('fridaDiegoLang') || 'en';
+                const lang = document.documentElement.lang || 'en';
                 updateElementTranslations(successBlock, lang);
 
                 successBlock.style.display = 'block';
@@ -366,7 +366,7 @@ function formatDate(dateString) {
  */
 function showMessage(messageDiv, type, enText, deText) {
     messageDiv.className = `form-message ${type}`;
-    const currentLang = localStorage.getItem('fridaDiegoLang') || 'en';
+    const currentLang = document.documentElement.lang || 'en';
     messageDiv.textContent = currentLang === 'de' ? deText : enText;
     messageDiv.setAttribute('data-en', enText);
     messageDiv.setAttribute('data-de', deText);
@@ -375,7 +375,7 @@ function showMessage(messageDiv, type, enText, deText) {
     const langToggle = document.getElementById('lang-toggle');
     if (langToggle) {
         const updateMessage = () => {
-            const lang = localStorage.getItem('fridaDiegoLang') || 'en';
+            const lang = document.documentElement.lang || 'en';
             messageDiv.textContent = lang === 'de' ? deText : enText;
         };
         langToggle.addEventListener('click', updateMessage);
@@ -390,7 +390,7 @@ function showMessage(messageDiv, type, enText, deText) {
  */
 function resetSubmitButton(btn) {
     btn.disabled = false;
-    const currentLang = localStorage.getItem('fridaDiegoLang') || 'en';
+    const currentLang = document.documentElement.lang || 'en';
     const submitText = currentLang === 'de' ? 'Reservierung absenden' : 'Submit Reservation';
     btn.innerHTML = `<span data-en="Submit Reservation" data-de="Reservierung absenden">${submitText}</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -421,7 +421,7 @@ function initPlaceholderLanguage() {
     if (!textarea) return;
 
     const updatePlaceholder = () => {
-        const currentLang = localStorage.getItem('fridaDiegoLang') || 'en';
+        const currentLang = document.documentElement.lang || 'en';
         const placeholder = currentLang === 'de'
             ? textarea.getAttribute('data-de-placeholder')
             : textarea.getAttribute('data-en-placeholder');

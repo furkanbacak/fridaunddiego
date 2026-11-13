@@ -6,54 +6,84 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize all modules
     initNavigation();
-    initLanguageToggle();
     initScrollReveal();
     initSmoothScroll();
-    initHalloweenPopup();
+    initCampaignPopup();
+    initLandingPortrait();
+    initGuestReviews();
 });
 
-/**
- * Seasonal Halloween cocktail popup (homepage and menu only)
- */
-function initHalloweenPopup() {
-    const page = window.location.pathname.split('/').pop();
-    if (page && page !== 'index.html' && page !== 'menu' && page !== 'menu.html') return;
-
-    const popup = document.createElement('div');
-    popup.className = 'halloween-popup';
-    popup.setAttribute('role', 'dialog');
-    popup.setAttribute('aria-modal', 'true');
-    popup.setAttribute('aria-label', 'Halloween special cocktails');
-    popup.innerHTML = `
-        <div class="halloween-popup__backdrop" data-popup-close></div>
-        <div class="halloween-popup__content">
-            <button class="halloween-popup__close" type="button" aria-label="Close Halloween special" data-popup-close>&times;</button>
-            <img src="halloween-special-cocktails.jpeg" alt="Halloween special cocktails: Beso del Diablo, Café de Bruja and La Calabaza, all 13 euros">
-        </div>
-    `;
-
-    const closePopup = () => {
-        popup.classList.remove('is-visible');
-        document.body.classList.remove('popup-open');
-        window.setTimeout(() => popup.remove(), 250);
-    };
-
-    popup.querySelectorAll('[data-popup-close]').forEach((element) => {
-        element.addEventListener('click', closePopup);
+function initGuestReviews() {
+    const section = document.querySelector('.guest-reviews');
+    if (!section) return;
+    const track = section.querySelector('.guest-review-grid');
+    const cards = [...track.children];
+    const viewport = document.createElement('div');
+    viewport.className = 'guest-review-viewport';
+    track.before(viewport);
+    viewport.append(track);
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let index = 0, timer;
+    const firstCopy = cards[0].cloneNode(true);
+    firstCopy.setAttribute('aria-hidden', 'true');
+    track.append(firstCopy);
+    function show(value, animate = true) {
+        index = value;
+        track.style.transition = animate ? '' : 'none';
+        track.style.transform = 'translateX(-' + index * 100 + '%)';
+        cards.forEach((card, i) => card.setAttribute('aria-hidden', String(i !== index % cards.length)));
+    }
+    track.addEventListener('transitionend', (event) => {
+        if (event.target === track && event.propertyName === 'transform' && index === cards.length) show(0, false);
     });
-    document.addEventListener('keydown', function handleEscape(event) {
-        if (event.key === 'Escape' && popup.isConnected) {
-            closePopup();
-            document.removeEventListener('keydown', handleEscape);
+    function schedule() {
+        clearInterval(timer);
+        const staticMode = reducedMotion.matches;
+        section.classList.toggle('has-review-carousel', !staticMode);
+        firstCopy.hidden = staticMode;
+        if (staticMode) {
+            track.style.transform = '';
+            cards.forEach(card => card.removeAttribute('aria-hidden'));
+        } else {
+            show(0, false);
+            if (!document.hidden) timer = setInterval(() => show(index + 1), 5500);
         }
-    });
+    }
+    document.addEventListener('visibilitychange', schedule);
+    reducedMotion.addEventListener('change', schedule);
+    schedule();
+}
 
-    document.body.appendChild(popup);
-    document.body.classList.add('popup-open');
-    requestAnimationFrame(() => {
-        popup.classList.add('is-visible');
-        popup.querySelector('.halloween-popup__close').focus();
+function initLandingPortrait() {
+    const portrait = document.querySelector('.landing-page .hero-logo');
+    if (!portrait) return;
+
+    const reveal = () => portrait.classList.add('portrait-revealed');
+    const poster = document.querySelector('.campaign-popup[open]');
+    if (poster) {
+        poster.addEventListener('close', reveal, { once: true });
+    } else {
+        reveal();
+    }
+}
+
+/** Poster and optional text details are present in the original HTML. */
+function initCampaignPopup() {
+    const popup = document.querySelector('dialog.campaign-popup');
+    if (!popup) return;
+    const previousFocus = document.activeElement;
+    popup.querySelector('.campaign-popup-close').addEventListener('click', () => popup.close());
+    popup.addEventListener('click', event => {
+        if (event.target !== popup) return;
+        const bounds = popup.getBoundingClientRect();
+        if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) popup.close();
     });
+    popup.addEventListener('close', () => {
+        document.body.classList.remove('popup-open');
+        if (previousFocus && previousFocus !== document.body) previousFocus.focus({ preventScroll: true });
+    });
+    document.body.classList.add('popup-open');
+    popup.showModal();
 }
 
 /**
@@ -109,94 +139,11 @@ function initNavigation() {
 }
 
 /**
- * Language toggle functionality (EN/DE)
- */
-function initLanguageToggle() {
-    const langToggle = document.getElementById('lang-toggle');
-    if (!langToggle) return;
-    
-    const langActive = langToggle.querySelector('.lang-active');
-    const langInactive = langToggle.querySelector('.lang-inactive');
-    if (!langActive || !langInactive) return;
-    
-    // Check for saved language preference
-    let currentLang = localStorage.getItem('fridaDiegoLang') || 'en';
-    
-    // Apply saved language on load
-    if (currentLang === 'de') {
-        switchLanguage('de');
-        updateToggleUI('de');
-    }
-
-    langToggle.addEventListener('click', () => {
-        currentLang = currentLang === 'en' ? 'de' : 'en';
-        switchLanguage(currentLang);
-        updateToggleUI(currentLang);
-        localStorage.setItem('fridaDiegoLang', currentLang);
-    });
-
-    function updateToggleUI(lang) {
-        if (lang === 'de') {
-            langActive.textContent = 'DE';
-            langInactive.textContent = 'EN';
-        } else {
-            langActive.textContent = 'EN';
-            langInactive.textContent = 'DE';
-        }
-    }
-
-    function switchLanguage(lang) {
-        // Update HTML lang attribute
-        document.documentElement.lang = lang;
-        
-        // Find all elements with data-en and data-de attributes
-        const translatableElements = document.querySelectorAll('[data-en][data-de]');
-        
-        translatableElements.forEach(element => {
-            const text = lang === 'en' ? element.dataset.en : element.dataset.de;
-            
-            // Check if the element contains HTML (like <br> tags)
-            if (text.includes('<br>') || text.includes('<')) {
-                element.innerHTML = text;
-            } else {
-                element.textContent = text;
-            }
-        });
-
-        // Update page title based on language (subpages keep their own titles)
-        const path = window.location.pathname || '';
-        if (path.includes('reservation.html')) {
-            document.title = lang === 'de' ? 'Reservierung | Frida & Diego' : 'Reservation | Frida & Diego';
-        } else if (path.includes('workshops.html')) {
-            document.title = lang === 'de' ? 'Cocktail-Workshop | Frida & Diego' : 'Cocktail Workshop | Frida & Diego';
-        } else if (lang === 'de') {
-            document.title = 'Frida & Diego | Mexikanisches Restaurant & Cocktailbar Berlin';
-        } else {
-            document.title = 'Frida & Diego | Mexican Restaurant & Cocktail Bar Berlin';
-        }
-
-        // Announce language change for screen readers
-        announceLanguageChange(lang);
-    }
-
-    function announceLanguageChange(lang) {
-        const announcement = document.createElement('div');
-        announcement.setAttribute('role', 'status');
-        announcement.setAttribute('aria-live', 'polite');
-        announcement.className = 'sr-only';
-        announcement.textContent = lang === 'en' 
-            ? 'Language changed to English' 
-            : 'Sprache auf Deutsch umgestellt';
-        document.body.appendChild(announcement);
-        
-        setTimeout(() => announcement.remove(), 1000);
-    }
-}
-
-/**
  * Scroll reveal animations
  */
 function initScrollReveal() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+        !('IntersectionObserver' in window)) return;
     const revealElements = document.querySelectorAll(
         '.about-card, .menu-category, .drink-featured, .contact-card, .feature'
     );

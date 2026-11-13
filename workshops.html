@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cocktail Workshop | Frida & Diego</title>
-    <meta name="description"
-        content="Private cocktail workshops at Frida & Diego Berlin — learn three signature drinks with our bartender before opening hours.">
+    <title>Private Cocktail Workshops | Frida &amp; Diego Berlin</title>
+    <meta name="description" content="Request a private cocktail workshop in Berlin-Schöneberg and learn to make three signature drinks with the Frida &amp; Diego bartender.">
+    <link rel="canonical" href="https://fridaunddiego.com/workshops.html">
+    <link rel="alternate" hreflang="en" href="https://fridaunddiego.com/workshops.html">
+    <link rel="alternate" hreflang="de" href="https://fridaunddiego.com/de/workshops.html">
+    <link rel="alternate" hreflang="x-default" href="https://fridaunddiego.com/workshops.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -31,11 +34,7 @@
                 <li><a href="workshops.html" class="nav-link nav-link-active" data-en="Workshops" data-de="Workshops">Workshops</a></li>
             </ul>
             <div class="nav-actions">
-                <button class="lang-toggle" id="lang-toggle">
-                    <span class="lang-active">EN</span>
-                    <span class="lang-divider">/</span>
-                    <span class="lang-inactive">DE</span>
-                </button>
+                <a class="lang-toggle" id="lang-toggle" href="de/workshops.html" hreflang="de" lang="de" aria-label="Auf Deutsch lesen"><span class="lang-active">EN</span> / <span class="lang-inactive">DE</span></a>
                 <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
@@ -80,6 +79,11 @@
                 </ul>
             </div>
 
+            <div class="workshop-summary">
+                <h3 data-en="Workshop questions" data-de="Fragen zum Workshop">Workshop questions</h3>
+                <p data-en="Where do we meet? At Frida &amp; Diego, Fuggerstraße 28, 10777 Berlin-Schöneberg." data-de="Wo treffen wir uns? Bei Frida &amp; Diego in der Fuggerstraße 28, 10777 Berlin-Schöneberg.">Where do we meet? At Frida &amp; Diego, Fuggerstraße 28, 10777 Berlin-Schöneberg.</p>
+                <p data-en="Can we come with more than ten people? Yes, larger groups can request a workshop using the form below." data-de="Können mehr als zehn Personen teilnehmen? Ja, größere Gruppen können einen Workshop über das Formular unten anfragen.">Can we come with more than ten people? Yes, larger groups can request a workshop using the form below.</p>
+            </div>
             <div class="reservation-form-wrapper">
                 <form id="workshop-form" class="reservation-form">
                     <div class="form-row">
@@ -267,14 +271,14 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="workshop.js?v=2"></script>
+    <script src="script.js?v=20261113-language-urls"></script>
+    <script src="workshop.js?v=20261113-language-urls"></script>
     <script>
         (function workshopPlaceholders() {
             const notes = document.getElementById('notes');
             if (!notes) return;
             const apply = () => {
-                const lang = localStorage.getItem('fridaDiegoLang') || 'en';
+                const lang = document.documentElement.lang || 'en';
                 notes.placeholder = lang === 'de'
                     ? (notes.getAttribute('data-de-placeholder') || '')
                     : (notes.getAttribute('data-en-placeholder') || '');

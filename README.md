@@ -55,8 +55,8 @@ frida-diego-website/
 ├── workshop.js             # Workshop form handler (separate EmailJS template)
 ├── frida-diego-logo.png    # Restaurant logo (transparent)
 ├── frida-diego-logo.jpeg   # Restaurant logo (original)
-├── Frida-Diego-Food-Menu.pdf    # Food menu PDF
-├── Frida-Diego-Cocktail-Menu.pdf      # Cocktail menu PDF
+├── frida-diego-food-menu.pdf    # Food menu PDF
+├── frida-diego-cocktail-menu.pdf      # Cocktail menu PDF
 └── README.md               # This file
 ```
 
@@ -190,3 +190,16 @@ Fuggerstraße 28
 ---
 
 **Viva La Vida! 🌺**
+
+## Current cocktail campaign
+
+The Not on the Menu poster lives at `assets/campaigns/not-on-the-menu/poster.jpeg`.
+Its six drinks, ingredients, prices and the vegan Sour note are static bilingual HTML inside the poster dialog in `index.html` and `menu.html`. Customers can expand the optional text details in the popup; no campaign block appears in the main page or menu layout. The text is in the original HTML, but indexing of closed dialog content is not guaranteed. Keep both copies and the poster in sync when prices change.
+The previous Halloween poster is preserved in `archive/campaigns/2026-halloween-campaign/`.
+
+## German pages
+
+Edit the root HTML pages and their `data-de` translations, then run
+`node scripts/build-german.mjs` from the repository root. Commit the generated
+`de/` pages alongside the source changes so GitHub Pages can serve them directly.
+The script also updates language links and the sitemap.

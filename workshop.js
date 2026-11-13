@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function getLang() {
-    return localStorage.getItem('fridaDiegoLang') || 'en';
+    return document.documentElement.lang || 'en';
 }
 
 function getFirstBookableDay(minAdvanceDays) {

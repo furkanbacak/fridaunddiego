@@ -3,14 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frida & Diego | Mexican Restaurant & Cocktail Bar Berlin</title>
-    <meta name="description" content="Authentic Mexican & Tex-Mex cuisine with an extensive cocktail bar in the heart of Berlin Schöneberg. Experience the spirit of Frida Kahlo and Diego Rivera.">
+    <title>Frida &amp; Diego | Mexican Restaurant &amp; Cocktail Bar in Schöneberg</title>
+    <meta name="description" content="Visit Frida &amp; Diego in Berlin-Schöneberg for Mexican and Tex-Mex food and cocktails. Browse the menu or request a table at Fuggerstraße 28.">
+    <link rel="canonical" href="https://fridaunddiego.com/">
+    <link rel="alternate" hreflang="en" href="https://fridaunddiego.com/">
+    <link rel="alternate" hreflang="de" href="https://fridaunddiego.com/de/index.html">
+    <link rel="alternate" hreflang="x-default" href="https://fridaunddiego.com/">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "@id": "https://fridaunddiego.com/#restaurant",
+      "name": "Frida & Diego",
+      "url": "https://fridaunddiego.com/",
+      "image": "https://fridaunddiego.com/frida-diego-logo.png",
+      "telephone": "+493023299629",
+      "servesCuisine": [
+        "Mexican",
+        "Tex-Mex"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Fuggerstraße 28",
+        "addressLocality": "Berlin",
+        "postalCode": "10777",
+        "addressCountry": "DE"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "17:00",
+        "closes": "00:00"
+      },
+      "hasMenu": "https://fridaunddiego.com/menu.html",
+      "acceptsReservations": "https://fridaunddiego.com/reservation.html",
+      "sameAs": [
+        "https://instagram.com/fridaunddiego"
+      ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20261017-halloween">
+    <link rel="stylesheet" href="styles.css?v=landing-portrait">
 </head>
-<body>
+<body class="landing-page">
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -22,15 +67,11 @@
                 <li><a href="#menu" class="nav-link" data-en="Menu" data-de="Speisekarte">Menu</a></li>
                 <li><a href="#drinks" class="nav-link" data-en="Drinks" data-de="Getränke">Drinks</a></li>
                 <li><a href="#contact" class="nav-link" data-en="Contact" data-de="Kontakt">Contact</a></li>
-                <li><a href="reservation.html" class="nav-link" data-en="Reservation" data-de="Reservierung">Reservation</a></li>
+                <li><a href="reservation.html" class="nav-link landing-reservation" data-en="Reservation" data-de="Reservierung">Reservation</a></li>
                 <li><a href="workshops.html" class="nav-link" data-en="Workshops" data-de="Workshops">Workshops</a></li>
             </ul>
             <div class="nav-actions">
-                <button class="lang-toggle" id="lang-toggle">
-                    <span class="lang-active">EN</span>
-                    <span class="lang-divider">/</span>
-                    <span class="lang-inactive">DE</span>
-                </button>
+                <a class="lang-toggle" id="lang-toggle" href="de/index.html" hreflang="de" lang="de" aria-label="Auf Deutsch lesen"><span class="lang-active">EN</span> / <span class="lang-inactive">DE</span></a>
                 <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
@@ -49,7 +90,7 @@
             <div class="hero-flowers hero-flowers-left"></div>
             <div class="hero-flowers hero-flowers-right"></div>
             <div class="hero-logo">
-                <img src="frida-diego-logo.png" alt="Frida & Diego - Viva La Vida" class="hero-logo-img">
+                <img src="frida-diego-logo.png" alt="Illustrated portrait of Frida and Diego, Viva La Vida" class="hero-logo-img">
             </div>
             <h1 class="hero-title" data-en="Frida & Diego" data-de="Frida & Diego">Frida & Diego</h1>
             <p class="hero-subtitle" data-en="Mexican Restaurant & Cocktail Bar" data-de="Mexikanisches Restaurant & Cocktailbar">Mexican Restaurant & Cocktail Bar</p>
@@ -216,6 +257,9 @@
             </div>
         </div>
     </section>
+
+
+
 
     <!-- Drinks Section -->
     <section class="drinks" id="drinks">
@@ -516,6 +560,122 @@
         </div>
     </section>
 
+    <!-- Selected guest review excerpts, checked on Google on 2026-11-12. -->
+    <section class="guest-reviews" id="guest-reviews" aria-labelledby="guest-reviews-title">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-en="Shared moments" data-de="Gemeinsame Momente">Shared moments</span>
+                <h2 class="section-title" id="guest-reviews-title" data-en="Guest reviews" data-de="Gästestimmen">Guest reviews</h2>
+                <p data-en="Short excerpts from some guest reviews." data-de="Kurze Auszüge aus einigen Gästebewertungen.">Short excerpts from some guest reviews.</p>
+            </div>
+            <div class="guest-review-grid">
+                <figure class="guest-review-card">
+                    <div class="guest-review-stars" aria-label="5/5">★★★★★</div>
+                    <blockquote lang="de">„Sehr aufmerksamer und freundlicher Kellner.“</blockquote>
+                    <figcaption><span class="guest-review-initials">A. K.</span><span data-en="Google review" data-de="Google-Rezension">Google review</span></figcaption>
+                </figure>
+                <figure class="guest-review-card">
+                    <div class="guest-review-stars" aria-label="5/5">★★★★★</div>
+                    <blockquote lang="de">„Sehr leckeres Essen, …“</blockquote>
+                    <figcaption><span class="guest-review-initials">C.</span><span data-en="Google review" data-de="Google-Rezension">Google review</span></figcaption>
+                </figure>
+                <figure class="guest-review-card">
+                    <div class="guest-review-stars" aria-label="5/5">★★★★★</div>
+                    <blockquote lang="de">„… ungezwungene Atmosphäre, …“</blockquote>
+                    <figcaption><span class="guest-review-initials">B. M.</span><span data-en="Google review" data-de="Google-Rezension">Google review</span></figcaption>
+                </figure>
+                <figure class="guest-review-card">
+                    <div class="guest-review-stars" aria-label="5/5">★★★★★</div>
+                    <blockquote lang="de">„Die besten Cocktails der Stadt, …“</blockquote>
+                    <figcaption><span class="guest-review-initials">H. B.</span><span data-en="Google review" data-de="Google-Rezension">Google review</span></figcaption>
+                </figure>
+                <figure class="guest-review-card">
+                    <div class="guest-review-stars" aria-label="5/5">★★★★★</div>
+                    <blockquote lang="de">„Der Service war exzellent …“</blockquote>
+                    <figcaption><span class="guest-review-initials">A. P.</span><span data-en="Google review" data-de="Google-Rezension">Google review</span></figcaption>
+                </figure>
+                <figure class="guest-review-card">
+                    <div class="guest-review-stars" aria-label="5/5">★★★★★</div>
+                    <blockquote lang="de">„… Ambiente sehr schön.“</blockquote>
+                    <figcaption><span class="guest-review-initials">E.</span><span data-en="Google review" data-de="Google-Rezension">Google review</span></figcaption>
+                </figure>
+                <figure class="guest-review-card">
+                    <div class="guest-review-stars" aria-label="5/5">★★★★★</div>
+                    <blockquote lang="de">„… Top Nachos mit Rindfleisch, …“</blockquote>
+                    <figcaption><span class="guest-review-initials">M. K.</span><span data-en="Google review" data-de="Google-Rezension">Google review</span></figcaption>
+                </figure>
+                <figure class="guest-review-card">
+                    <div class="guest-review-stars" aria-label="5/5">★★★★★</div>
+                    <blockquote lang="de">„Ich war heute in diesem mexikanischen Restaurant essen und bin wirklich begeistert!“</blockquote>
+                    <figcaption><span class="guest-review-initials">S. M.</span><span data-en="Google review" data-de="Google-Rezension">Google review</span></figcaption>
+                </figure>
+                <figure class="guest-review-card">
+                    <div class="guest-review-stars" aria-label="5/5">★★★★★</div>
+                    <blockquote lang="de">„… Wir gehen auf jeden Fall nochmal hin.“</blockquote>
+                    <figcaption><span class="guest-review-initials">D. G.</span><span data-en="Google review" data-de="Google-Rezension">Google review</span></figcaption>
+                </figure>
+                <figure class="guest-review-card">
+                    <div class="guest-review-stars" aria-label="5/5">★★★★★</div>
+                    <blockquote lang="de">„… Das Lokal ist sehr schön, die Karte gut gemacht und das Essen war großartig. …“</blockquote>
+                    <figcaption><span class="guest-review-initials">E. L.</span><span data-en="Google review" data-de="Google-Rezension">Google review</span></figcaption>
+                </figure>
+                <figure class="guest-review-card">
+                    <div class="guest-review-stars" aria-label="5/5">★★★★★</div>
+                    <blockquote lang="de">„Ein sehr schönes Restaurant. …“</blockquote>
+                    <figcaption><span class="guest-review-initials">L. H. W.</span><span data-en="Google review" data-de="Google-Rezension">Google review</span></figcaption>
+                </figure>
+                <figure class="guest-review-card">
+                    <div class="guest-review-stars" aria-label="5/5">★★★★★</div>
+                    <blockquote lang="de">„Super toller Laden, sehr lecker und super Service. Immer wieder gerne. …“</blockquote>
+                    <figcaption><span class="guest-review-initials">S. B.</span><span data-en="Google review" data-de="Google-Rezension">Google review</span></figcaption>
+                </figure>
+                <figure class="guest-review-card">
+                    <div class="guest-review-stars" aria-label="5/5">★★★★★</div>
+                    <blockquote lang="de">„… Wir kommen definitiv wieder!“</blockquote>
+                    <figcaption><span class="guest-review-initials">T.</span><span data-en="Google review" data-de="Google-Rezension">Google review</span></figcaption>
+                </figure>
+                <figure class="guest-review-card">
+                    <div class="guest-review-stars" aria-label="5/5">★★★★★</div>
+                    <blockquote lang="de">„Sehr freundlicher Empfang. …“</blockquote>
+                    <figcaption><span class="guest-review-initials">A. N.</span><span data-en="Google review" data-de="Google-Rezension">Google review</span></figcaption>
+                </figure>
+                <figure class="guest-review-card">
+                    <div class="guest-review-stars" aria-label="5/5">★★★★★</div>
+                    <blockquote lang="de">„… Die Cocktails schmecken gut und die Auswahl ist recht groß. …“</blockquote>
+                    <figcaption><span class="guest-review-initials">M.</span><span data-en="Google review" data-de="Google-Rezension">Google review</span></figcaption>
+                </figure>
+                <figure class="guest-review-card">
+                    <div class="guest-review-stars" aria-label="5/5">★★★★★</div>
+                    <blockquote lang="de">„… Ein tolles mexikanisches Flair im Gastraum mit hervorragendem Essen. …“</blockquote>
+                    <figcaption><span class="guest-review-initials">J. S.</span><span data-en="Google review" data-de="Google-Rezension">Google review</span></figcaption>
+                </figure>
+                <figure class="guest-review-card">
+                    <div class="guest-review-stars" aria-label="5/5">★★★★★</div>
+                    <blockquote lang="de">„Ein wundervolles mexikanischen Restaurant. …“</blockquote>
+                    <figcaption><span class="guest-review-initials">I. P.</span><span data-en="Google review" data-de="Google-Rezension">Google review</span></figcaption>
+                </figure>
+                <figure class="guest-review-card">
+                    <div class="guest-review-stars" aria-label="5/5">★★★★★</div>
+                    <blockquote lang="de">„… Es war gemütlich, Bedienung sehr freundlich. …“</blockquote>
+                    <figcaption><span class="guest-review-initials">A. D.</span><span data-en="Google review" data-de="Google-Rezension">Google review</span></figcaption>
+                </figure>
+                <figure class="guest-review-card">
+                    <div class="guest-review-stars" aria-label="5/5">★★★★★</div>
+                    <blockquote lang="de">„… Das Restaurant bietet leckeres mexikanisches Essen, welches an den europäischen Markt etwas angepasst ist. …“</blockquote>
+                    <figcaption><span class="guest-review-initials">T. G.</span><span data-en="Google review" data-de="Google-Rezension">Google review</span></figcaption>
+                </figure>
+                <figure class="guest-review-card">
+                    <div class="guest-review-stars" aria-label="5/5">★★★★★</div>
+                    <blockquote lang="de">„Eine besondere Bar mit den leckersten Cocktails in bezauberndem Ambiente. …“</blockquote>
+                    <figcaption><span class="guest-review-initials">C. H.</span><span data-en="Google review" data-de="Google-Rezension">Google review</span></figcaption>
+                </figure>
+            </div>
+            <div class="guest-review-footer">
+                <a href="https://share.google/JZHSs9rwtgosXiVL3" target="_blank" rel="noopener noreferrer" data-en="Read all reviews on Google ↗" data-de="Alle Rezensionen auf Google lesen ↗">Read all reviews on Google ↗</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="contact-bg"></div>
@@ -694,8 +854,54 @@
                 <p>© 2026 Frida & Diego. <span data-en="All rights reserved." data-de="Alle Rechte vorbehalten.">All rights reserved.</span></p>
             </div>
         </div>
+        <nav class="guide-links" aria-label="Frida &amp; Diego">
+            <a href="mexican-food.html" data-en="Mexican food in Schöneberg" data-de="Mexikanisch essen in Schöneberg">Mexican food in Schöneberg</a>
+            <a href="cocktails.html" data-en="Margaritas &amp; cocktails" data-de="Margaritas &amp; Cocktails">Margaritas &amp; cocktails</a>
+        </nav>
     </footer>
 
-    <script src="script.js?v=20261017-halloween-menu-fix"></script>
+    <dialog class="campaign-popup" id="not-on-the-menu" aria-label="Not on the Menu – Frida &amp; Diego">
+        <button class="campaign-popup-close" type="button" aria-label="Close / Schließen">×</button>
+        <img src="assets/campaigns/not-on-the-menu/poster.jpeg" width="1086" height="1448" alt="Not on the Menu – Whiskey Sour, Amaretto Sour, Tequila Sour and Clover Club: 12 € each. Mezcal Sour and Pornstar Martini: 13 € each. Pornstar Martini served with Prosecco. All Sours use a vegan alternative, no egg white.">
+        <details class="campaign-details">
+                <summary><span data-en="Cocktail details" data-de="Cocktail-Details">Cocktail details</span></summary>
+            <div class="campaign-drinks">
+                <article class="campaign-drink">
+                    <div class="campaign-drink-heading"><h3>Whiskey Sour</h3><span class="campaign-price">12 €</span></div>
+                    <p class="campaign-ingredients" data-en="Bourbon, citrus, cane sugar" data-de="Bourbon, Zitrus, Rohrzucker">Bourbon, citrus, cane sugar</p>
+                    <p class="campaign-description" data-en="A timeless classic with a silky finish." data-de="Ein zeitloser Klassiker mit einem seidigen Finish.">A timeless classic with a silky finish.</p>
+                </article>
+                <article class="campaign-drink">
+                    <div class="campaign-drink-heading"><h3>Amaretto Sour</h3><span class="campaign-price">12 €</span></div>
+                    <p class="campaign-ingredients" data-en="Amaretto, bourbon, citrus, cane sugar" data-de="Amaretto, Bourbon, Zitrus, Rohrzucker">Amaretto, bourbon, citrus, cane sugar</p>
+                    <p class="campaign-description" data-en="A smooth and nutty sour with a sweet balance." data-de="Ein sanfter, nussiger Sour mit süßer Balance.">A smooth and nutty sour with a sweet balance.</p>
+                </article>
+                <article class="campaign-drink">
+                    <div class="campaign-drink-heading"><h3>Tequila Sour</h3><span class="campaign-price">12 €</span></div>
+                    <p class="campaign-ingredients" data-en="Tequila blanco, agave, citrus" data-de="Tequila Blanco, Agave, Zitrus">Tequila blanco, agave, citrus</p>
+                    <p class="campaign-description" data-en="A vibrant, tangy take on a classic." data-de="Eine lebendige, spritzige Variante eines Klassikers.">A vibrant, tangy take on a classic.</p>
+                </article>
+                <article class="campaign-drink">
+                    <div class="campaign-drink-heading"><h3>Mezcal Sour</h3><span class="campaign-price">13 €</span></div>
+                    <p class="campaign-ingredients" data-en="Mezcal, agave, citrus" data-de="Mezcal, Agave, Zitrus">Mezcal, agave, citrus</p>
+                    <p class="campaign-description" data-en="Smoky, citrusy and perfectly balanced." data-de="Rauchig, zitrusfrisch und perfekt ausbalanciert.">Smoky, citrusy and perfectly balanced.</p>
+                </article>
+                <article class="campaign-drink">
+                    <div class="campaign-drink-heading"><h3>Clover Club</h3><span class="campaign-price">12 €</span></div>
+                    <p class="campaign-ingredients" data-en="Gin, raspberry, citrus, cane sugar" data-de="Gin, Himbeere, Zitrus, Rohrzucker">Gin, raspberry, citrus, cane sugar</p>
+                    <p class="campaign-description" data-en="A pink classic with a fruity elegance." data-de="Ein pinker Klassiker mit fruchtiger Eleganz.">A pink classic with a fruity elegance.</p>
+                </article>
+                <article class="campaign-drink">
+                    <div class="campaign-drink-heading"><h3>Pornstar Martini</h3><span class="campaign-price">13 €</span></div>
+                    <p class="campaign-ingredients" data-en="Vodka, passionfruit, vanilla, citrus" data-de="Vodka, Passionsfrucht, Vanille, Zitrus">Vodka, passionfruit, vanilla, citrus</p>
+                    <p class="campaign-description" data-en="A modern favourite – exotic and seductive. Served with Prosecco." data-de="Ein moderner Favorit – exotisch und verführerisch. Mit Prosecco serviert.">A modern favourite – exotic and seductive. Served with Prosecco.</p>
+                </article>
+            </div>
+            <p class="campaign-note" data-en="All our Sours are made with a vegan alternative – no egg white." data-de="Alle unsere Sours werden mit einer veganen Alternative zubereitet – ohne Eiweiß.">All our Sours are made with a vegan alternative – no egg white.</p>
+            <p class="campaign-poster-link"><a href="assets/campaigns/not-on-the-menu/poster.jpeg" target="_blank" rel="noopener" data-en="View cocktail poster ↗" data-de="Cocktail-Poster ansehen ↗">View cocktail poster ↗</a></p>
+            </details>
+    </dialog>
+
+    <script src="script.js?v=landing-portrait"></script>
 </body>
 </html>

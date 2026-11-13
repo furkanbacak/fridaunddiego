@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Menu | Frida & Diego - Mexican Restaurant Berlin</title>
-    <meta name="description" content="Full menu of Frida & Diego - Mexican Restaurant & Cocktail Bar. Food, Cocktails, Beer, Wine & Soft Drinks.">
+    <title>Food &amp; Cocktail Menu | Frida &amp; Diego Berlin-Schöneberg</title>
+    <meta name="description" content="Browse the Frida &amp; Diego menu in Berlin-Schöneberg, with Mexican and Tex-Mex dishes, classic and signature cocktails, mocktails and prices.">
+    <link rel="canonical" href="https://fridaunddiego.com/menu.html">
+    <link rel="alternate" hreflang="en" href="https://fridaunddiego.com/menu.html">
+    <link rel="alternate" hreflang="de" href="https://fridaunddiego.com/de/menu.html">
+    <link rel="alternate" hreflang="x-default" href="https://fridaunddiego.com/menu.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20261017-halloween">
+    <link rel="stylesheet" href="styles.css?v=20261113-campaign">
     <link rel="stylesheet" href="menu-page.css?v=3">
 </head>
 <body class="menu-page-body">
@@ -19,11 +23,7 @@
                 <img src="frida-diego-logo.png" alt="Frida & Diego" class="menu-logo">
             </a>
             <div class="menu-header-right">
-                <button class="lang-toggle-mini" id="lang-toggle">
-                    <span class="lang-active">EN</span>
-                    <span class="lang-divider">/</span>
-                    <span class="lang-inactive">DE</span>
-                </button>
+                <a class="lang-toggle-mini" id="lang-toggle" href="de/menu.html" hreflang="de" lang="de" aria-label="Auf Deutsch lesen"><span class="lang-active">EN</span> / <span class="lang-inactive">DE</span></a>
             </div>
         </div>
     </header>
@@ -39,6 +39,9 @@
             <span class="tab-text" data-en="Cocktails" data-de="Cocktails">Cocktails</span>
         </button>
     </nav>
+
+
+
 
     <!-- Menu Content -->
     <main class="menu-content">
@@ -1252,7 +1255,49 @@
         <a href="index.html" class="back-to-site" data-en="← Back to Website" data-de="← Zur Website">← Back to Website</a>
     </footer>
 
-    <script src="script.js?v=20261017-halloween-menu-fix"></script>
+    <dialog class="campaign-popup" id="not-on-the-menu" aria-label="Not on the Menu – Frida &amp; Diego">
+        <button class="campaign-popup-close" type="button" aria-label="Close / Schließen">×</button>
+        <img src="assets/campaigns/not-on-the-menu/poster.jpeg" width="1086" height="1448" alt="Not on the Menu – Whiskey Sour, Amaretto Sour, Tequila Sour and Clover Club: 12 € each. Mezcal Sour and Pornstar Martini: 13 € each. Pornstar Martini served with Prosecco. All Sours use a vegan alternative, no egg white.">
+        <details class="campaign-details">
+                <summary><span data-en="Cocktail details" data-de="Cocktail-Details">Cocktail details</span></summary>
+            <div class="campaign-drinks">
+                <article class="campaign-drink">
+                    <div class="campaign-drink-heading"><h3>Whiskey Sour</h3><span class="campaign-price">12 €</span></div>
+                    <p class="campaign-ingredients" data-en="Bourbon, citrus, cane sugar" data-de="Bourbon, Zitrus, Rohrzucker">Bourbon, citrus, cane sugar</p>
+                    <p class="campaign-description" data-en="A timeless classic with a silky finish." data-de="Ein zeitloser Klassiker mit einem seidigen Finish.">A timeless classic with a silky finish.</p>
+                </article>
+                <article class="campaign-drink">
+                    <div class="campaign-drink-heading"><h3>Amaretto Sour</h3><span class="campaign-price">12 €</span></div>
+                    <p class="campaign-ingredients" data-en="Amaretto, bourbon, citrus, cane sugar" data-de="Amaretto, Bourbon, Zitrus, Rohrzucker">Amaretto, bourbon, citrus, cane sugar</p>
+                    <p class="campaign-description" data-en="A smooth and nutty sour with a sweet balance." data-de="Ein sanfter, nussiger Sour mit süßer Balance.">A smooth and nutty sour with a sweet balance.</p>
+                </article>
+                <article class="campaign-drink">
+                    <div class="campaign-drink-heading"><h3>Tequila Sour</h3><span class="campaign-price">12 €</span></div>
+                    <p class="campaign-ingredients" data-en="Tequila blanco, agave, citrus" data-de="Tequila Blanco, Agave, Zitrus">Tequila blanco, agave, citrus</p>
+                    <p class="campaign-description" data-en="A vibrant, tangy take on a classic." data-de="Eine lebendige, spritzige Variante eines Klassikers.">A vibrant, tangy take on a classic.</p>
+                </article>
+                <article class="campaign-drink">
+                    <div class="campaign-drink-heading"><h3>Mezcal Sour</h3><span class="campaign-price">13 €</span></div>
+                    <p class="campaign-ingredients" data-en="Mezcal, agave, citrus" data-de="Mezcal, Agave, Zitrus">Mezcal, agave, citrus</p>
+                    <p class="campaign-description" data-en="Smoky, citrusy and perfectly balanced." data-de="Rauchig, zitrusfrisch und perfekt ausbalanciert.">Smoky, citrusy and perfectly balanced.</p>
+                </article>
+                <article class="campaign-drink">
+                    <div class="campaign-drink-heading"><h3>Clover Club</h3><span class="campaign-price">12 €</span></div>
+                    <p class="campaign-ingredients" data-en="Gin, raspberry, citrus, cane sugar" data-de="Gin, Himbeere, Zitrus, Rohrzucker">Gin, raspberry, citrus, cane sugar</p>
+                    <p class="campaign-description" data-en="A pink classic with a fruity elegance." data-de="Ein pinker Klassiker mit fruchtiger Eleganz.">A pink classic with a fruity elegance.</p>
+                </article>
+                <article class="campaign-drink">
+                    <div class="campaign-drink-heading"><h3>Pornstar Martini</h3><span class="campaign-price">13 €</span></div>
+                    <p class="campaign-ingredients" data-en="Vodka, passionfruit, vanilla, citrus" data-de="Vodka, Passionsfrucht, Vanille, Zitrus">Vodka, passionfruit, vanilla, citrus</p>
+                    <p class="campaign-description" data-en="A modern favourite – exotic and seductive. Served with Prosecco." data-de="Ein moderner Favorit – exotisch und verführerisch. Mit Prosecco serviert.">A modern favourite – exotic and seductive. Served with Prosecco.</p>
+                </article>
+            </div>
+            <p class="campaign-note" data-en="All our Sours are made with a vegan alternative – no egg white." data-de="Alle unsere Sours werden mit einer veganen Alternative zubereitet – ohne Eiweiß.">All our Sours are made with a vegan alternative – no egg white.</p>
+            <p class="campaign-poster-link"><a href="assets/campaigns/not-on-the-menu/poster.jpeg" target="_blank" rel="noopener" data-en="View cocktail poster ↗" data-de="Cocktail-Poster ansehen ↗">View cocktail poster ↗</a></p>
+            </details>
+    </dialog>
+
+    <script src="script.js?v=20261113-language-urls"></script>
     <script>
         // Scroll to top on page load
         window.scrollTo(0, 0);
